@@ -50,6 +50,16 @@ Søk gjerne i koden etter disse for å finne dem raskt:
 | **Facebook / Instagram** | `index.html` (kontakt + footer) | `class="social-link"` med `href="#"` |
 | **Domene** | `index.html` (meta), `robots.txt`, `sitemap.xml` | `www.mardalutleie.no` |
 
+### Hero-bilde (bakgrunn øverst på siden)
+
+Legg bakgrunnsbildet i `assets/img/hero-photo.jpg`, så vises det automatisk øverst
+på forsiden. Filen må hete nøyaktig `hero-photo.jpg`. Frem til den er på plass, brukes
+en innebygd SVG-illustrasjon som reserve – siden ser altså aldri «tom» ut.
+
+- Anbefalt størrelse: liggende, ca. 1920×1080 px (eller større)
+- Et mørkt sjikt legges automatisk over bildet så teksten holder seg lesbar
+- Vil du bytte bilde senere, er det bare å erstatte den samme filen
+
 ### Kontaktskjema
 
 Skjemaet fungerer ut av boksen: hvis ingen skjematjeneste er satt opp, åpner det
