@@ -1,0 +1,72 @@
+<svg width="1000" height="680" viewBox="0 0 1000 680" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mardal Utleie – utstyr når du trenger det">
+  <defs>
+    <style>
+      .navy { fill: #16243d; }
+      .gold { fill: #b8923f; }
+      .stk-navy { stroke: #16243d; }
+      .stk-gold { stroke: #b8923f; }
+    </style>
+  </defs>
+
+  <!-- ===== The M ===== -->
+  <!-- left half (navy): vertical leg + inner diagonal to valley -->
+  <path d="M245 400 V95 h70 V300 L500 300 465 370 315 250 h-70 V400 Z" class="navy"/>
+  <polyline points="280,400 280,110 490,320" fill="none" class="stk-navy" stroke-width="70" stroke-linejoin="round" stroke-linecap="butt"/>
+  <!-- right half (gold): outer diagonal up + vertical leg -->
+  <polyline points="510,320 720,110 720,400" fill="none" class="stk-gold" stroke-width="70" stroke-linejoin="round" stroke-linecap="butt"/>
+
+  <!-- ===== Ground line ===== -->
+  <rect x="150" y="430" width="360" height="6" rx="3" class="navy"/>
+  <rect x="510" y="430" width="360" height="6" rx="3" class="gold"/>
+
+  <!-- ===== Party tent (left of scene) ===== -->
+  <g class="navy">
+    <!-- tent walls -->
+    <path d="M360 430 V320 h150 V430 Z" fill="#16243d"/>
+    <!-- door -->
+    <path d="M420 430 v-70 a15 15 0 0 1 30 0 v70 Z" fill="#ffffff"/>
+    <!-- windows -->
+    <path d="M378 400 v-34 a10 10 0 0 1 20 0 v34 Z" fill="#ffffff"/>
+    <path d="M472 400 v-34 a10 10 0 0 1 20 0 v34 Z" fill="#ffffff"/>
+    <!-- roof with scalloped edge -->
+    <path d="M330 320 L435 250 L540 320 Z" fill="#16243d"/>
+    <path d="M330 320 q13 14 26 0 q13 14 26 0 q13 14 26 0 q13 14 26 0 q13 14 26 0 q13 14 26 0 q13 14 26 0 q13 14 26 0" fill="none" stroke="#ffffff" stroke-width="5"/>
+  </g>
+
+  <!-- ===== Table ===== -->
+  <g stroke="#16243d" stroke-width="8" stroke-linecap="round" fill="none">
+    <line x1="560" y1="392" x2="660" y2="392"/>
+    <line x1="572" y1="392" x2="572" y2="430"/>
+    <line x1="648" y1="392" x2="648" y2="430"/>
+  </g>
+
+  <!-- ===== Folding chair ===== -->
+  <g stroke="#16243d" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M690 340 L690 400"/>
+    <path d="M690 340 L722 350 L722 400"/>
+    <path d="M690 372 L722 382"/>
+    <path d="M690 400 L676 430"/>
+    <path d="M722 400 L736 430"/>
+  </g>
+
+  <!-- ===== Speaker on tripod ===== -->
+  <g class="navy">
+    <rect x="770" y="330" width="52" height="86" rx="8" fill="#16243d"/>
+  </g>
+  <g stroke="#16243d" stroke-width="8" stroke-linecap="round" fill="none">
+    <line x1="796" y1="416" x2="796" y2="430"/>
+    <line x1="796" y1="430" x2="770" y2="452"/>
+    <line x1="796" y1="430" x2="822" y2="452"/>
+  </g>
+
+  <!-- ===== Wordmark ===== -->
+  <text x="500" y="560" text-anchor="middle" font-family="'Arial Black', 'Segoe UI', Arial, sans-serif" font-weight="800" font-size="128" letter-spacing="4" class="navy">MARDAL</text>
+
+  <!-- UTLEIE with side rules -->
+  <line x1="270" y1="605" x2="360" y2="605" class="stk-gold" stroke-width="4"/>
+  <line x1="640" y1="605" x2="730" y2="605" class="stk-gold" stroke-width="4"/>
+  <text x="500" y="622" text-anchor="middle" font-family="'Arial', 'Segoe UI', sans-serif" font-weight="700" font-size="54" letter-spacing="16" class="gold">UTLEIE</text>
+
+  <!-- tagline -->
+  <text x="500" y="662" text-anchor="middle" font-family="'Arial', 'Segoe UI', sans-serif" font-weight="600" font-size="24" letter-spacing="6" class="navy">UTSTYR NÅR DU TRENGER DET</text>
+</svg>

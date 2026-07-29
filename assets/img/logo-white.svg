@@ -1,0 +1,8 @@
+<svg width="230" height="56" viewBox="0 0 230 56" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mardal Utleie">
+  <!-- M icon -->
+  <polyline points="12,46 12,10 30,30" fill="none" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/>
+  <polyline points="30,30 48,10 48,46" fill="none" stroke="#c9a24e" stroke-width="8" stroke-linejoin="round"/>
+  <!-- wordmark -->
+  <text x="64" y="27" font-family="'Arial Black','Segoe UI',Arial,sans-serif" font-weight="800" font-size="22" letter-spacing="1" fill="#ffffff">MARDAL</text>
+  <text x="65" y="47" font-family="'Arial','Segoe UI',sans-serif" font-weight="700" font-size="13" letter-spacing="7.5" fill="#c9a24e">UTLEIE</text>
+</svg>

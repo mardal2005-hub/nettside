@@ -1,6 +1,8 @@
-<svg width="200" height="48" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mardal Utleie">
-  <rect x="2" y="8" width="32" height="32" rx="8" fill="#1e3a5f"/>
-  <path d="M10 30V18l8 6 8-6v12" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <text x="44" y="24" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#16243d">Mardal</text>
-  <text x="44" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="500" letter-spacing="3" fill="#3b6fb6">UTLEIE</text>
+<svg width="230" height="56" viewBox="0 0 230 56" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mardal Utleie">
+  <!-- M icon -->
+  <polyline points="12,46 12,10 30,30" fill="none" stroke="#16243d" stroke-width="8" stroke-linejoin="round"/>
+  <polyline points="30,30 48,10 48,46" fill="none" stroke="#b8923f" stroke-width="8" stroke-linejoin="round"/>
+  <!-- wordmark -->
+  <text x="64" y="27" font-family="'Arial Black','Segoe UI',Arial,sans-serif" font-weight="800" font-size="22" letter-spacing="1" fill="#16243d">MARDAL</text>
+  <text x="65" y="47" font-family="'Arial','Segoe UI',sans-serif" font-weight="700" font-size="13" letter-spacing="7.5" fill="#b8923f">UTLEIE</text>
 </svg>
