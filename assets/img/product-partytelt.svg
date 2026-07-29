@@ -1,0 +1,10 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Partytelt" preserveAspectRatio="xMidYMid slice">
+  <defs><linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef3f9"/><stop offset="1" stop-color="#dce6f2"/></linearGradient></defs>
+  <rect width="600" height="400" fill="url(#bg3)"/>
+  <path d="M300 90 L470 200 H130 Z" fill="#ffffff" stroke="#c9d4e2" stroke-width="3"/>
+  <rect x="150" y="200" width="300" height="130" fill="#1e3a5f"/>
+  <rect x="255" y="240" width="90" height="90" rx="4" fill="#3b6fb6"/>
+  <path d="M150 200V330" stroke="#16243d" stroke-width="8" stroke-linecap="round"/>
+  <path d="M450 200V330" stroke="#16243d" stroke-width="8" stroke-linecap="round"/>
+  <path d="M300 90V200" stroke="#c9d4e2" stroke-width="3"/>
+</svg>
