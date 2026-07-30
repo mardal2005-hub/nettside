@@ -66,6 +66,7 @@
       <nav class="main-nav" id="mainNav" aria-label="Hovedmeny">
         <ul>
           <li><a href="#produkter">Produkter</a></li>
+          <li><a href="#pakker">Pakker</a></li>
           <li><a href="#om-oss">Om oss</a></li>
           <li><a href="#galleri">Galleri</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -116,7 +117,7 @@
             <div class="product-body">
               <h3>Klappstoler</h3>
               <p>Stabile og komfortable klappstoler som er enkle å sette opp og rydde bort. Perfekt til både innendørs og utendørs bruk.</p>
-              <p class="price" data-price>Pris på forespørsel</p>
+              <p class="price" data-price><span class="price-amount">25 kr</span> <span class="price-unit">/ stk</span></p>
               <a href="#kontakt" class="btn btn-outline btn-block" data-product="Klappstoler">Send forespørsel</a>
             </div>
           </article>
@@ -132,7 +133,7 @@
             <div class="product-body">
               <h3>Bord</h3>
               <p>Solide bord i praktiske størrelser som passer til servering, buffet og selskap. Lette å transportere og montere.</p>
-              <p class="price" data-price>Pris på forespørsel</p>
+              <p class="price" data-price><span class="price-amount">150 kr</span> <span class="price-unit">/ stk</span></p>
               <a href="#kontakt" class="btn btn-outline btn-block" data-product="Bord">Send forespørsel</a>
             </div>
           </article>
@@ -147,8 +148,8 @@
             </div>
             <div class="product-body">
               <h3>Partytelt</h3>
-              <p>Romslige partytelt som gir ly for både sol og regn – slik at festen kan fortsette uansett vær.</p>
-              <p class="price" data-price>Pris på forespørsel</p>
+              <p>Romslige partytelt (3×6 m) som gir ly for både sol og regn – slik at festen kan fortsette uansett vær.</p>
+              <p class="price" data-price><span class="price-amount">1 390 kr</span></p>
               <a href="#kontakt" class="btn btn-outline btn-block" data-product="Partytelt">Send forespørsel</a>
             </div>
           </article>
@@ -164,13 +165,77 @@
             <div class="product-body">
               <h3>Høyttalere</h3>
               <p>Kraftige høyttalere med god lyd til musikk og taler. Enkle å koble til og perfekte for både store og små arrangementer.</p>
-              <p class="price" data-price>Pris på forespørsel</p>
+              <p class="price" data-price><span class="price-amount">500 kr</span></p>
               <a href="#kontakt" class="btn btn-outline btn-block" data-product="Høyttalere">Send forespørsel</a>
             </div>
           </article>
         </div>
 
+        <p class="delivery-note">Levering og oppsett kan tilbys mot tillegg.</p>
         <p class="product-note">Flere produkter kommer. Mangler du noe? <a href="#kontakt">Ta kontakt</a> – vi hjelper deg gjerne.</p>
+      </div>
+    </section>
+
+    <!-- ===================== PAKKER ===================== -->
+    <section class="section section-alt" id="pakker" aria-labelledby="pakker-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Spar med pakke</p>
+          <h2 id="pakker-title">Pakkepriser</h2>
+          <p class="section-sub">Ferdige pakker til ulike anledninger – enkelt, komplett og forutsigbart.</p>
+        </div>
+
+        <div class="package-grid">
+          <!-- Hagefestpakke -->
+          <article class="package-card">
+            <div class="package-head">
+              <span class="package-emoji" aria-hidden="true">🎉</span>
+              <h3>Hagefestpakke</h3>
+              <p class="package-price">2 290 kr</p>
+            </div>
+            <ul class="package-list">
+              <li>1 partytelt</li>
+              <li>4 bord</li>
+              <li>30 klappstoler</li>
+            </ul>
+            <a href="#kontakt" class="btn btn-outline btn-block" data-product="Hagefestpakke">Send forespørsel</a>
+          </article>
+
+          <!-- Festpakke (fremhevet) -->
+          <article class="package-card package-card--featured">
+            <span class="package-badge">Mest populær</span>
+            <div class="package-head">
+              <span class="package-emoji" aria-hidden="true">🥳</span>
+              <h3>Festpakke</h3>
+              <p class="package-price">2 990 kr</p>
+            </div>
+            <ul class="package-list">
+              <li>1 partytelt</li>
+              <li>6 bord</li>
+              <li>50 klappstoler</li>
+              <li>1 Soundboks</li>
+            </ul>
+            <a href="#kontakt" class="btn btn-primary btn-block" data-product="Festpakke">Send forespørsel</a>
+          </article>
+
+          <!-- Stor Festpakke -->
+          <article class="package-card">
+            <div class="package-head">
+              <span class="package-emoji" aria-hidden="true">🏕️</span>
+              <h3>Stor Festpakke</h3>
+              <p class="package-price">4 990 kr</p>
+            </div>
+            <ul class="package-list">
+              <li>2 partytelt (3×6 m)</li>
+              <li>6 bord</li>
+              <li>50 klappstoler</li>
+              <li>1 Soundboks</li>
+            </ul>
+            <a href="#kontakt" class="btn btn-outline btn-block" data-product="Stor Festpakke">Send forespørsel</a>
+          </article>
+        </div>
+
+        <p class="delivery-note">Levering og oppsett kan tilbys mot tillegg.</p>
       </div>
     </section>
 
@@ -321,6 +386,9 @@
                   <option value="Bord">Bord</option>
                   <option value="Partytelt">Partytelt</option>
                   <option value="Høyttalere">Høyttalere</option>
+                  <option value="Hagefestpakke">Hagefestpakke</option>
+                  <option value="Festpakke">Festpakke</option>
+                  <option value="Stor Festpakke">Stor Festpakke</option>
                   <option value="Flere produkter">Flere produkter</option>
                 </select>
               </div>
@@ -353,6 +421,7 @@
         <h3>Snarveier</h3>
         <ul>
           <li><a href="#produkter">Produkter</a></li>
+          <li><a href="#pakker">Pakker</a></li>
           <li><a href="#om-oss">Om oss</a></li>
           <li><a href="#galleri">Galleri</a></li>
           <li><a href="#faq">FAQ</a></li>
