@@ -44,11 +44,10 @@ Søk gjerne i koden etter disse for å finne dem raskt:
 
 | Hva | Hvor | Merket med |
 |-----|------|-----------|
-| **Telefonnummer** | `index.html` (kontakt + footer) | `+47 00 00 00 00` / `tel:+4700000000` |
-| **Adresse** | `index.html` (kontakt) | «Legges inn senere» |
-| **Priser** | `index.html` (produktkort) | «Pris på forespørsel» / `data-price` |
 | **Facebook / Instagram** | `index.html` (kontakt + footer) | `class="social-link"` med `href="#"` |
 | **Domene** | `index.html` (meta), `robots.txt`, `sitemap.xml` | `www.mardalutleie.no` |
+
+Telefonnummer (+47 413 92 413), område (Haugalandet) og priser er nå lagt inn.
 
 ### Hero-bilde (bakgrunn øverst på siden)
 
