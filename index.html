@@ -131,6 +131,38 @@
       </div>
     </section>
 
+    <!-- ===================== SLIK FUNGERER DET ===================== -->
+    <section class="section" id="slik" aria-labelledby="slik-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Enkelt og greit</p>
+          <h2 id="slik-title">Slik fungerer det</h2>
+          <p class="section-sub">Tre enkle steg fra forespørsel til ferdig arrangement.</p>
+        </div>
+
+        <ol class="steps-grid">
+          <li class="step-card">
+            <span class="step-num">1</span>
+            <span class="step-icon" aria-hidden="true">✉️</span>
+            <h3>Send forespørsel</h3>
+            <p>Fortell oss hva du ønsker å leie og dato for arrangementet.</p>
+          </li>
+          <li class="step-card">
+            <span class="step-num">2</span>
+            <span class="step-icon" aria-hidden="true">✅</span>
+            <h3>Vi bekrefter</h3>
+            <p>Vi sender et tilbud og avtaler levering eller henting.</p>
+          </li>
+          <li class="step-card">
+            <span class="step-num">3</span>
+            <span class="step-icon" aria-hidden="true">🎉</span>
+            <h3>Nyt arrangementet</h3>
+            <p>Hent utstyret eller få det levert, og nyt arrangementet.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
     <!-- ===================== PRODUKTER ===================== -->
     <section class="section" id="produkter" aria-labelledby="produkter-title">
       <div class="container">
@@ -152,6 +184,10 @@
             <div class="product-body">
               <h3>Klappstoler</h3>
               <p>Stabile og komfortable klappstoler som er enkle å sette opp og rydde bort. Perfekt til både innendørs og utendørs bruk.</p>
+              <ul class="product-specs">
+                <li>Komfortable hvite klappstoler</li>
+                <li>Egnet til både innendørs og utendørs bruk</li>
+              </ul>
               <p class="price" data-price><span class="price-amount">25 kr</span> <span class="price-unit">/ stk</span></p>
               <a href="#kontakt" class="btn btn-outline btn-block" data-product="Klappstoler">Send forespørsel</a>
             </div>
@@ -168,6 +204,10 @@
             <div class="product-body">
               <h3>Bord</h3>
               <p>Solide bord i praktiske størrelser som passer til servering, buffet og selskap. Lette å transportere og montere.</p>
+              <ul class="product-specs">
+                <li>Solid sammenleggbart bord</li>
+                <li>Passer 6–8 personer</li>
+              </ul>
               <p class="price" data-price><span class="price-amount">150 kr</span> <span class="price-unit">/ stk</span></p>
               <a href="#kontakt" class="btn btn-outline btn-block" data-product="Bord">Send forespørsel</a>
             </div>
@@ -184,24 +224,33 @@
             <div class="product-body">
               <h3>Partytelt</h3>
               <p>Romslige partytelt (3×6 m) som gir ly for både sol og regn – slik at festen kan fortsette uansett vær.</p>
+              <ul class="product-specs">
+                <li>Størrelse: 3 × 6 meter</li>
+                <li>Passer til ca. 24–30 sittende gjester</li>
+                <li>Egnet til bursdager, konfirmasjoner, hagefester og firmaarrangementer</li>
+              </ul>
               <p class="price" data-price><span class="price-amount">1 390 kr</span></p>
               <a href="#kontakt" class="btn btn-outline btn-block" data-product="Partytelt">Send forespørsel</a>
             </div>
           </article>
 
-          <!-- Høyttalere -->
+          <!-- Soundboks -->
           <article class="product-card">
             <div class="product-media">
-              <img src="assets/img/product-hoyttalere.webp" alt="Høyttalere til utleie" width="600" height="600" loading="lazy">
+              <img src="assets/img/product-hoyttalere.webp" alt="Soundboks høyttaler til utleie" width="600" height="600" loading="lazy">
               <span class="product-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="8" r="1.5"/><circle cx="12" cy="15" r="3"/></svg>
               </span>
             </div>
             <div class="product-body">
-              <h3>Høyttalere</h3>
-              <p>Kraftige høyttalere med god lyd til musikk og taler. Enkle å koble til og perfekte for både store og små arrangementer.</p>
+              <h3>Soundboks</h3>
+              <p>Kraftig, batteridrevet høyttaler med god lyd til musikk og taler. Enkel å koble til og perfekt for både store og små arrangementer.</p>
+              <ul class="product-specs">
+                <li>Kraftig batteridrevet høyttaler</li>
+                <li>Perfekt til musikk og taler</li>
+              </ul>
               <p class="price" data-price><span class="price-amount">500 kr</span></p>
-              <a href="#kontakt" class="btn btn-outline btn-block" data-product="Høyttalere">Send forespørsel</a>
+              <a href="#kontakt" class="btn btn-outline btn-block" data-product="Soundboks">Send forespørsel</a>
             </div>
           </article>
         </div>
@@ -228,6 +277,7 @@
               <h3>Hagefestpakke</h3>
               <p class="package-price">2 290 kr</p>
             </div>
+            <p class="package-desc">Perfekt for bursdager, hagefester og mindre sammenkomster.</p>
             <ul class="package-list">
               <li>1 partytelt</li>
               <li>4 bord</li>
@@ -244,6 +294,7 @@
               <h3>Festpakke</h3>
               <p class="package-price">2 990 kr</p>
             </div>
+            <p class="package-desc">Perfekt for konfirmasjoner, firmaarrangementer og selskaper med opptil 50 gjester.</p>
             <ul class="package-list">
               <li>1 partytelt</li>
               <li>6 bord</li>
@@ -260,7 +311,7 @@
               <h3>Stor Festpakke</h3>
               <p class="package-price">4 990 kr</p>
             </div>
-            <p class="package-desc">Perfekt for større arrangementer med opptil ca. 50 gjester. Inneholder to partytelt, bord og stoler, med mulighet for å legge til Soundboks og annet utstyr ved behov.</p>
+            <p class="package-desc">Perfekt for større arrangementer hvor du trenger ekstra plass og overbygg.</p>
             <ul class="package-list">
               <li>2 partytelt (3×6 m)</li>
               <li>6 bord</li>
@@ -326,6 +377,24 @@
           <figure class="gallery-item"><img src="assets/img/gallery-5.svg" alt="Partytelt satt opp ute" width="600" height="450" loading="lazy"></figure>
           <figure class="gallery-item"><img src="assets/img/gallery-6.svg" alt="Klappstoler og bord dekket til fest" width="600" height="450" loading="lazy"></figure>
         </div>
+      </div>
+    </section>
+
+    <!-- ===================== LEVERINGSOMRÅDE ===================== -->
+    <section class="section section-alt" id="leveringsomrade" aria-labelledby="lev-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Leveringsområde</p>
+          <h2 id="lev-title">Vi leverer på hele Haugalandet</h2>
+          <p class="section-sub">Levering og henting kan avtales i disse områdene – og flere steder på forespørsel.</p>
+        </div>
+        <ul class="area-grid">
+          <li class="area-chip"><span class="area-pin" aria-hidden="true">📍</span> Haugesund</li>
+          <li class="area-chip"><span class="area-pin" aria-hidden="true">📍</span> Karmøy</li>
+          <li class="area-chip"><span class="area-pin" aria-hidden="true">📍</span> Tysvær</li>
+          <li class="area-chip"><span class="area-pin" aria-hidden="true">📍</span> Sveio</li>
+          <li class="area-chip"><span class="area-pin" aria-hidden="true">📍</span> Bokn</li>
+        </ul>
       </div>
     </section>
 
@@ -416,6 +485,15 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
           </div>
+
+          <div class="payments">
+            <span class="payments-label">Betaling:</span>
+            <span class="pay-badge pay-vipps">Vipps</span>
+            <span class="pay-badge pay-bank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10h18"/><path d="M12 3 3 8h18z"/><path d="M5 10v8"/><path d="M10 10v8"/><path d="M14 10v8"/><path d="M19 10v8"/><path d="M3 20h18"/></svg>
+              Bankoverføring
+            </span>
+          </div>
         </div>
 
         <div class="contact-form-wrap">
@@ -442,7 +520,7 @@
                   <option value="Klappstoler">Klappstoler</option>
                   <option value="Bord">Bord</option>
                   <option value="Partytelt">Partytelt</option>
-                  <option value="Høyttalere">Høyttalere</option>
+                  <option value="Soundboks">Soundboks</option>
                   <option value="Hagefestpakke">Hagefestpakke</option>
                   <option value="Festpakke">Festpakke</option>
                   <option value="Stor Festpakke">Stor Festpakke</option>
@@ -477,6 +555,25 @@
     </section>
   </main>
 
+  <!-- ===================== CALL TO ACTION ===================== -->
+  <section class="cta" aria-labelledby="cta-title">
+    <div class="container cta-inner">
+      <h2 id="cta-title">Klar til å planlegge ditt arrangement?</h2>
+      <p>Vi hjelper deg med alt utstyret du trenger – ta kontakt for et uforpliktende tilbud.</p>
+      <div class="cta-actions">
+        <a href="#kontakt" class="btn btn-light btn-lg">Be om tilbud</a>
+      </div>
+      <div class="cta-contacts">
+        <a href="tel:+4741392413" class="cta-contact">
+          <span aria-hidden="true">📞</span> +47 413 92 413
+        </a>
+        <a href="mailto:booking@mardalutleie.no" class="cta-contact">
+          <span aria-hidden="true">✉️</span> booking@mardalutleie.no
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
     <div class="container footer-inner">
@@ -487,10 +584,12 @@
       <nav class="footer-nav" aria-label="Bunntekstmeny">
         <h3>Snarveier</h3>
         <ul>
+          <li><a href="#slik">Slik fungerer det</a></li>
           <li><a href="#produkter">Produkter</a></li>
           <li><a href="#pakker">Pakker</a></li>
           <li><a href="#om-oss">Om oss</a></li>
           <li><a href="#galleri">Galleri</a></li>
+          <li><a href="#leveringsomrade">Leveringsområde</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
@@ -513,6 +612,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- Flytende ring-knapp (kun mobil) -->
+  <a href="tel:+4741392413" class="call-fab" aria-label="Ring oss nå på +47 413 92 413">
+    <span aria-hidden="true">📞</span> Ring nå
+  </a>
 
   <script src="js/main.js" defer></script>
 </body>
