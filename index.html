@@ -28,6 +28,9 @@
 
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 
+  <!-- Preload hero image for faster LCP -->
+  <link rel="preload" as="image" href="assets/img/hero-photo.jpg" fetchpriority="high">
+
   <!-- Fonts (Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +131,9 @@
           <li><span aria-hidden="true">✓</span> Fleksibel levering</li>
         </ul>
       </div>
+      <a href="#hvorfor" class="scroll-indicator" aria-label="Bla ned til innhold">
+        <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+      </a>
     </section>
 
     <!-- ===================== HVORFOR VELGE OSS ===================== -->
@@ -402,17 +408,32 @@
           <figure class="testimonial-card">
             <div class="stars" role="img" aria-label="5 av 5 stjerner">★★★★★</div>
             <blockquote>«Her kan en ekte kundeanmeldelse stå. Teksten byttes enkelt ut når du får tilbakemeldinger.»</blockquote>
-            <figcaption>Fornøyd kunde <span class="ex">(eksempel)</span></figcaption>
+            <figcaption class="testimonial-author">
+              <span class="avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 1 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <span class="author-meta"><span class="author-name">Fornøyd kunde</span><span class="ex">Eksempel</span></span>
+            </figcaption>
           </figure>
           <figure class="testimonial-card">
             <div class="stars" role="img" aria-label="5 av 5 stjerner">★★★★★</div>
             <blockquote>«Plass til enda et kundesitat. Del gjerne anmeldelsene dine, så legger vi dem inn her.»</blockquote>
-            <figcaption>Fornøyd kunde <span class="ex">(eksempel)</span></figcaption>
+            <figcaption class="testimonial-author">
+              <span class="avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 1 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <span class="author-meta"><span class="author-name">Fornøyd kunde</span><span class="ex">Eksempel</span></span>
+            </figcaption>
           </figure>
           <figure class="testimonial-card">
             <div class="stars" role="img" aria-label="5 av 5 stjerner">★★★★★</div>
             <blockquote>«Ekte anmeldelser bygger tillit. Dette kortet er klart til din neste fornøyde kunde.»</blockquote>
-            <figcaption>Fornøyd kunde <span class="ex">(eksempel)</span></figcaption>
+            <figcaption class="testimonial-author">
+              <span class="avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 1 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <span class="author-meta"><span class="author-name">Fornøyd kunde</span><span class="ex">Eksempel</span></span>
+            </figcaption>
           </figure>
         </div>
       </div>

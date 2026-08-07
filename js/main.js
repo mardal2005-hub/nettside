@@ -47,6 +47,43 @@
     revealEls.forEach(function (el) { io.observe(el); });
   }
 
+  /* ---------- Header: compact/blur state on scroll ---------- */
+  var header = document.querySelector('.site-header');
+  if (header) {
+    var onScroll = function () {
+      if (window.scrollY > 12) { header.classList.add('scrolled'); }
+      else { header.classList.remove('scrolled'); }
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* ---------- Scroll-spy: highlight active nav link ---------- */
+  var navLinks = Array.prototype.slice.call(
+    document.querySelectorAll('.main-nav a[href^="#"]')
+  );
+  if (navLinks.length && 'IntersectionObserver' in window) {
+    var linkById = {};
+    var spySections = [];
+    navLinks.forEach(function (link) {
+      var id = link.getAttribute('href').slice(1);
+      var section = id && document.getElementById(id);
+      if (section) { linkById[id] = link; spySections.push(section); }
+    });
+
+    var setActive = function (id) {
+      navLinks.forEach(function (l) { l.classList.remove('active'); });
+      if (linkById[id]) { linkById[id].classList.add('active'); }
+    };
+
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { setActive(entry.target.id); }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    spySections.forEach(function (s) { spy.observe(s); });
+  }
+
   /* ---------- Prefill product in contact form ---------- */
   var productSelect = document.getElementById('product');
   var messageField = document.getElementById('message');
