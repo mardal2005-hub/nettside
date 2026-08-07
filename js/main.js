@@ -84,6 +84,26 @@
     spySections.forEach(function (s) { spy.observe(s); });
   }
 
+  /* ---------- Hide floating call button near contact/footer ---------- */
+  var fab = document.querySelector('.call-fab');
+  if (fab && 'IntersectionObserver' in window) {
+    var zones = [
+      document.getElementById('kontakt'),
+      document.querySelector('.cta'),
+      document.querySelector('.site-footer')
+    ].filter(Boolean);
+    var zoneVisible = zones.map(function () { return false; });
+    var fabObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var idx = zones.indexOf(entry.target);
+        if (idx > -1) { zoneVisible[idx] = entry.isIntersecting; }
+      });
+      var anyVisible = zoneVisible.some(function (v) { return v; });
+      fab.classList.toggle('is-hidden', anyVisible);
+    }, { threshold: 0 });
+    zones.forEach(function (z) { fabObs.observe(z); });
+  }
+
   /* ---------- Prefill product in contact form ---------- */
   var productSelect = document.getElementById('product');
   var messageField = document.getElementById('message');
