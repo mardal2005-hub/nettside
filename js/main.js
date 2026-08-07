@@ -29,6 +29,24 @@
   var yearEl = document.getElementById('year');
   if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
 
+  /* ---------- Scroll reveal (subtle fade-in) ---------- */
+  var revealSelectors = '.section-head, .product-card, .package-card, .why-card, .step-card, .stat-tile, .testimonial-card, .area-chip, .gallery-item, .about-text, .about-stats, .contact-info, .contact-form-wrap, .contact-map, .cta-inner, .faq-item';
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll(revealSelectors);
+
+  if (revealEls.length && 'IntersectionObserver' in window && !prefersReduced) {
+    revealEls.forEach(function (el) { el.classList.add('reveal'); });
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
   /* ---------- Prefill product in contact form ---------- */
   var productSelect = document.getElementById('product');
   var messageField = document.getElementById('message');
