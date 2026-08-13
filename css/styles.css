@@ -190,6 +190,7 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
   backdrop-filter: blur(4px);
 }
 .hero h1 { color: #fff; font-size: clamp(2.4rem, 6vw, 4.2rem); letter-spacing: -0.03em; line-height: 1.05; }
+.hero-highlight { color: var(--orange-500); }
 .hero-lead { margin-top: 24px; font-size: clamp(1.1rem, 2.2vw, 1.3rem); color: #dbe6f4; max-width: 660px; line-height: 1.6; }
 .hero-actions { margin-top: 38px; display: flex; flex-wrap: wrap; gap: 16px; }
 .hero-trust {
@@ -197,9 +198,10 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
 }
 .hero-trust li { display: inline-flex; align-items: center; gap: 9px; color: #eaf1fb; font-weight: 500; font-size: .98rem; }
 .hero-trust span {
-  display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%;
-  background: var(--orange-500); color: var(--navy-900); font-size: .72rem; font-weight: 800;
+  flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
+  border: 1.5px solid rgba(242,116,13,0.75); color: var(--orange-300);
 }
+.hero-trust span svg { width: 16px; height: 16px; }
 
 /* Scroll indicator */
 .scroll-indicator {
