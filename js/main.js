@@ -104,6 +104,22 @@
     zones.forEach(function (z) { fabObs.observe(z); });
   }
 
+  /* ---------- Hero background video: play only while visible ---------- */
+  var heroVideo = document.querySelector('.hero-video');
+  if (heroVideo && 'IntersectionObserver' in window) {
+    var tryPlay = function () {
+      var pr = heroVideo.play();
+      if (pr && pr.catch) { pr.catch(function () {}); }
+    };
+    var heroVidObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { tryPlay(); }
+        else { heroVideo.pause(); }
+      });
+    }, { threshold: 0.15 });
+    heroVidObs.observe(heroVideo);
+  }
+
   /* ---------- Prefill product in contact form ---------- */
   var productSelect = document.getElementById('product');
   var messageField = document.getElementById('message');
