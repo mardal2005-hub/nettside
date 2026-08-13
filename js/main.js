@@ -104,20 +104,53 @@
     zones.forEach(function (z) { fabObs.observe(z); });
   }
 
-  /* ---------- Hero background video: play only while visible ---------- */
-  var heroVideo = document.querySelector('.hero-video');
-  if (heroVideo && 'IntersectionObserver' in window) {
-    var tryPlay = function () {
-      var pr = heroVideo.play();
-      if (pr && pr.catch) { pr.catch(function () {}); }
+  /* ---------- Hero scroll parallax (image + text depth) ---------- */
+  var hero = document.querySelector('.hero');
+  var heroMedia = document.querySelector('.hero-media');
+  var heroContent = document.querySelector('.hero-content');
+
+  if (hero && heroMedia && !prefersReduced) {
+    var heroH = hero.offsetHeight || 1;
+    var getConf = function () {
+      // Weaker, cheaper effect on smaller screens
+      return window.matchMedia('(max-width: 768px)').matches
+        ? { mediaShift: 0.06, scaleFrom: 1.04, scaleAdd: 0.05, textShift: 0.03, fade: 0.9 }
+        : { mediaShift: 0.12, scaleFrom: 1.05, scaleAdd: 0.07, textShift: 0.06, fade: 0.7 };
     };
-    var heroVidObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) { tryPlay(); }
-        else { heroVideo.pause(); }
-      });
-    }, { threshold: 0.15 });
-    heroVidObs.observe(heroVideo);
+    var conf = getConf();
+    var ticking = false;
+
+    var render = function () {
+      ticking = false;
+      var rect = hero.getBoundingClientRect();
+      if (rect.bottom <= 0) { return; }               // hero fully scrolled away
+      var p = Math.min(Math.max(-rect.top / heroH, 0), 1);
+
+      // Background: drifts down slightly + subtle zoom => appears to move up slowly
+      var mediaY = (p * heroH * conf.mediaShift).toFixed(1);
+      var scale = (conf.scaleFrom + p * conf.scaleAdd).toFixed(3);
+      heroMedia.style.transform = 'translate3d(0,' + mediaY + 'px,0) scale(' + scale + ')';
+
+      // Foreground text: moves a touch faster + fades => depth + glides into next section
+      if (heroContent) {
+        var textY = (-p * heroH * conf.textShift).toFixed(1);
+        var op = Math.max(0, 1 - p / conf.fade).toFixed(2);
+        heroContent.style.transform = 'translate3d(0,' + textY + 'px,0)';
+        heroContent.style.opacity = op;
+      }
+    };
+
+    var onScrollHero = function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(render); }
+    };
+
+    window.addEventListener('scroll', onScrollHero, { passive: true });
+    window.addEventListener('resize', function () {
+      heroH = hero.offsetHeight || 1;
+      conf = getConf();
+      render();
+    }, { passive: true });
+    render();
   }
 
   /* ---------- Prefill product in contact form ---------- */
