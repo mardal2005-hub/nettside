@@ -191,10 +191,10 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
 .hero-copy { max-width: 600px; text-shadow: 0 2px 16px rgba(16,24,40,0.6); }
 .hero-eyebrow {
   display: inline-block; text-transform: uppercase; letter-spacing: 2.5px;
-  font-size: .78rem; font-weight: 700; color: var(--orange-300);
-  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
-  padding: 7px 16px; border-radius: var(--radius-pill); margin-bottom: 22px;
-  backdrop-filter: blur(4px);
+  font-size: .78rem; font-weight: 700; color: #fff;
+  background: var(--orange-600); border: 1px solid var(--orange-600);
+  padding: 8px 18px; border-radius: var(--radius-pill); margin-bottom: 22px;
+  box-shadow: 0 6px 16px -6px rgba(194,65,12,0.6);
 }
 .hero h1 { color: #fff; font-size: clamp(1.85rem, 3.2vw, 2.5rem); letter-spacing: -0.02em; line-height: 1.14; }
 .hero-highlight { color: var(--orange-500); }
