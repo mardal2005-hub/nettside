@@ -2,9 +2,9 @@
   <defs>
     <style>
       .navy { fill: #16243d; }
-      .gold { fill: #f2740d; }
+      .gold { fill: #c2410c; }
       .stk-navy { stroke: #16243d; }
-      .stk-gold { stroke: #f2740d; }
+      .stk-gold { stroke: #c2410c; }
     </style>
   </defs>
 
