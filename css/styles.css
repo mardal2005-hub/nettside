@@ -186,7 +186,7 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
     background: linear-gradient(to bottom, rgba(16,24,40,0.42) 0%, rgba(16,24,40,0.30) 45%, rgba(16,24,40,0.50) 100%);
   }
 }
-.hero-content { width: 100%; max-width: var(--container); margin: 0 auto; padding: 48px 26px; }
+.hero-content { width: 100%; max-width: 100%; margin: 0; padding: 48px clamp(26px, 5vw, 88px); }
 /* Tekstblokk til venstre, avgrenset bredde så den ikke dekker teltet unødvendig */
 .hero-copy { max-width: 600px; text-shadow: 0 2px 16px rgba(16,24,40,0.6); }
 .hero-eyebrow {
