@@ -188,7 +188,7 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
 }
 .hero-content { width: 100%; max-width: var(--container); margin: 0 auto; padding: 48px 26px; }
 /* Tekstblokk til venstre, avgrenset bredde så den ikke dekker teltet unødvendig */
-.hero-copy { max-width: 520px; text-shadow: 0 2px 16px rgba(16,24,40,0.6); }
+.hero-copy { max-width: 600px; text-shadow: 0 2px 16px rgba(16,24,40,0.6); }
 .hero-eyebrow {
   display: inline-block; text-transform: uppercase; letter-spacing: 2.5px;
   font-size: .78rem; font-weight: 700; color: var(--orange-300);
@@ -196,8 +196,11 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
   padding: 7px 16px; border-radius: var(--radius-pill); margin-bottom: 22px;
   backdrop-filter: blur(4px);
 }
-.hero h1 { color: #fff; font-size: clamp(2rem, 4.4vw, 3.4rem); letter-spacing: -0.02em; line-height: 1.1; }
+.hero h1 { color: #fff; font-size: clamp(1.85rem, 3.2vw, 2.5rem); letter-spacing: -0.02em; line-height: 1.14; }
 .hero-highlight { color: var(--orange-500); }
+/* Tvunget 2-linjers overskrift på desktop; naturlig bryting på mobil */
+.hero-br { display: inline; }
+@media (max-width: 600px) { .hero-br { display: none; } }
 .hero-lead { margin-top: 24px; font-size: clamp(1.1rem, 2.2vw, 1.3rem); color: #dbe6f4; max-width: 660px; line-height: 1.6; }
 .hero-actions { margin-top: 38px; display: flex; flex-wrap: wrap; gap: 16px; }
 .hero-trust {
