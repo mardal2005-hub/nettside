@@ -12,11 +12,11 @@
   --gold:     #b8923f;
   --gold-300: #c9a24e;
 
-  /* Warm orange accent (replaces blue as the interactive/highlight colour) */
-  --orange-300: #f9a24e; /* on dark backgrounds (hero) */
-  --orange-500: #f2740d; /* vibrant accent: underlines, dots, borders, icon fills */
-  --orange-600: #c2410c; /* WCAG-safe with white text: buttons, links, labels, badges */
-  --orange-700: #9e3309; /* hover */
+  /* Warm orange accent – én felles tone på hele siden */
+  --orange-300: #f2740d;
+  --orange-500: #f2740d;
+  --orange-600: #f2740d;
+  --orange-700: #d9600b; /* kun litt mørkere ved hover */
   --bg:       #f8f9fa;
   --gray-50:  #f5f7fa;
   --gray-100: #eef2f7;
@@ -88,7 +88,7 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
   white-space: nowrap;
 }
 .btn:active { transform: translateY(0); }
-.btn-primary { background: var(--orange-600); color: #fff; box-shadow: 0 6px 16px -4px rgba(194,65,12,0.42); }
+.btn-primary { background: var(--orange-600); color: #fff; box-shadow: 0 6px 16px -4px rgba(242,116,13,0.42); }
 .btn-primary:hover { background: var(--orange-700); color: #fff; box-shadow: 0 12px 24px -6px rgba(158,51,9,0.5); transform: translateY(-2px); }
 .btn-outline:hover, .btn-light:hover, .btn-ghost:hover { transform: translateY(-2px); }
 .btn-outline { background: transparent; color: var(--navy-800); border-color: var(--gray-300); }
@@ -194,7 +194,7 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
   font-size: .78rem; font-weight: 700; color: #fff;
   background: var(--orange-600); border: 1px solid var(--orange-600);
   padding: 8px 18px; border-radius: var(--radius-pill); margin-bottom: 22px;
-  box-shadow: 0 6px 16px -6px rgba(194,65,12,0.6);
+  box-shadow: 0 6px 16px -6px rgba(242,116,13,0.6);
 }
 .hero h1 { color: #fff; font-size: clamp(1.85rem, 3.2vw, 2.5rem); letter-spacing: -0.02em; line-height: 1.14; }
 .hero-highlight { color: var(--orange-500); }
