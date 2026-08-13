@@ -118,6 +118,7 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
   height: var(--header-h); transition: height .3s ease;
+  max-width: 100%; padding: 0 clamp(26px, 5vw, 88px);
 }
 .site-header.scrolled .header-inner { height: 66px; }
 .logo { display: inline-flex; align-items: center; }
