@@ -245,9 +245,9 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
 }
 
 /* ---------- Sections ---------- */
-.section { padding: clamp(66px, 11vw, 148px) 0; background: var(--white); }
+.section { padding: clamp(44px, 6.5vw, 84px) 0; background: var(--white); }
 .section-alt { background: var(--bg); }
-.section-head { text-align: center; max-width: 720px; margin: 0 auto clamp(44px, 6vw, 68px); }
+.section-head { text-align: center; max-width: 720px; margin: 0 auto clamp(28px, 4vw, 44px); }
 .eyebrow {
   text-transform: uppercase; letter-spacing: 2.5px; font-size: .78rem; font-weight: 700;
   color: var(--orange-600); margin-bottom: 14px;
