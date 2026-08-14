@@ -196,6 +196,14 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
   background: var(--orange-600); border: 1px solid var(--orange-600);
   padding: 8px 18px; border-radius: var(--radius-pill); margin-bottom: 22px;
   box-shadow: 0 6px 16px -6px rgba(242,116,13,0.6);
+  white-space: nowrap;
+}
+/* Krymp badgen på mobil så teksten holder seg på én linje i den oransje boksen */
+@media (max-width: 560px) {
+  .hero-eyebrow { font-size: .62rem; letter-spacing: 1px; padding: 7px 14px; }
+}
+@media (max-width: 360px) {
+  .hero-eyebrow { font-size: .56rem; letter-spacing: .6px; }
 }
 .hero h1 { color: #fff; font-size: clamp(1.85rem, 3.2vw, 2.5rem); letter-spacing: -0.02em; line-height: 1.14; }
 .hero-highlight { color: var(--orange-500); }
