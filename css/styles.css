@@ -307,7 +307,7 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
 
 /* ---------- Product grid ---------- */
 .product-grid {
-  display: grid; gap: 26px;
+  display: grid; gap: 26px; align-items: start;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 .product-card {
