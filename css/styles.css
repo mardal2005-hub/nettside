@@ -272,7 +272,12 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
   transition: background .22s ease, transform .22s ease;
 }
 .why-card:hover .why-icon { background: rgba(242,116,13,0.20); transform: scale(1.06); }
-.why-icon svg { width: 30px; height: 30px; color: var(--orange-600); }
+
+/* Praktisk info – enkel stablet tekstspalte (ingen kort, ingen ikoner) */
+.info-list { max-width: 620px; margin: 0 auto; display: grid; gap: 26px; }
+.info-item + .info-item { border-top: 1px solid var(--gray-200); padding-top: 26px; }
+.info-item h3 { font-size: 1.2rem; }
+.info-item p { color: var(--text-soft); margin-top: 8px; font-size: 1.02rem; line-height: 1.75; }
 .why-card h3 { font-size: 1.2rem; }
 .why-card p { color: var(--text-soft); margin-top: 8px; font-size: .98rem; }
 
