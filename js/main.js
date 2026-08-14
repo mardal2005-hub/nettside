@@ -210,11 +210,11 @@
           (data.get('melding') || '')
         ];
         var subject = 'Forespørsel om utleie' + (data.get('produkt') ? ' – ' + data.get('produkt') : '');
-        var mailto = 'mailto:booking@mardalutleie.no'
+        var mailto = 'mailto:kontakt@mardalutleie.no'
           + '?subject=' + encodeURIComponent(subject)
           + '&body=' + encodeURIComponent(lines.join('\n'));
         window.location.href = mailto;
-        setStatus('Åpner e-postprogrammet ditt … Får du ikke opp noe, send oss en e-post direkte til booking@mardalutleie.no.', 'success');
+        setStatus('Åpner e-postprogrammet ditt … Får du ikke opp noe, send oss en e-post direkte til kontakt@mardalutleie.no.', 'success');
         return;
       }
 
@@ -232,10 +232,10 @@
           form.reset();
           setStatus('Takk! Forespørselen din er sendt. Vi tar kontakt så snart som mulig.', 'success');
         } else {
-          setStatus('Beklager, noe gikk galt. Prøv igjen eller send en e-post til booking@mardalutleie.no.', 'error');
+          setStatus('Beklager, noe gikk galt. Prøv igjen eller send en e-post til kontakt@mardalutleie.no.', 'error');
         }
       }).catch(function () {
-        setStatus('Beklager, noe gikk galt. Prøv igjen eller send en e-post til booking@mardalutleie.no.', 'error');
+        setStatus('Beklager, noe gikk galt. Prøv igjen eller send en e-post til kontakt@mardalutleie.no.', 'error');
       }).finally(function () {
         if (submitBtn) { submitBtn.disabled = false; }
       });

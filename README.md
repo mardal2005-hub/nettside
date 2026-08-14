@@ -62,7 +62,7 @@ en innebygd SVG-illustrasjon som reserve – siden ser altså aldri «tom» ut.
 ### Kontaktskjema
 
 Skjemaet fungerer ut av boksen: hvis ingen skjematjeneste er satt opp, åpner det
-kundens e-postprogram med en ferdig utfylt melding til `booking@mardalutleie.no`.
+kundens e-postprogram med en ferdig utfylt melding til `kontakt@mardalutleie.no`.
 
 For å motta forespørsler automatisk uten at kunden må ha e-postprogram, koble til en
 gratis tjeneste som [Formspree](https://formspree.io):
