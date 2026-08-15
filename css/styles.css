@@ -274,6 +274,8 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
 .why-card:hover .why-icon { background: rgba(242,116,13,0.20); transform: scale(1.06); }
 
 /* Praktisk info – enkel stablet tekstspalte (ingen kort, ingen ikoner) */
+.about-practical { margin-top: clamp(44px, 6vw, 72px); padding-top: clamp(40px, 5vw, 56px); border-top: 1px solid var(--gray-200); }
+.about-practical .section-head { margin-bottom: clamp(24px, 3.5vw, 36px); }
 .info-list { max-width: 620px; margin: 0 auto; display: grid; gap: 26px; }
 .info-item + .info-item { border-top: 1px solid var(--gray-200); padding-top: 26px; }
 .info-item h3 { font-size: 1.2rem; }
