@@ -390,20 +390,13 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
 .package-head { text-align: center; padding-bottom: 22px; border-bottom: 1px solid var(--gray-200); }
 .package-head h3 { font-size: 1.4rem; }
 .package-price { margin-top: 8px; font-size: 2rem; font-weight: 800; color: var(--navy-800); }
-.package-save {
-  align-self: center; margin-top: 14px;
-  display: inline-flex; align-items: center; gap: 6px;
-  background: rgba(21, 115, 71, 0.10); color: #157347;
-  font-weight: 700; font-size: .88rem;
-  padding: 6px 14px; border-radius: var(--radius-pill);
-}
-.package-desc { color: var(--text-soft); font-size: .95rem; margin-top: 14px; }
+.package-desc { color: var(--text-soft); font-size: .95rem; margin-top: 12px; }
 .package-deposit { margin: 0; font-size: .92rem; font-weight: 700; color: var(--navy-800); }
 .package-deposit span { color: var(--gray-500); font-weight: 500; }
 .package-list { list-style: none; margin: 16px 0 18px; display: grid; gap: 12px; align-content: start; }
 /* Pakker: «Les mer»-innhold (samme oppførsel som produktkort) */
 .package-more { margin-top: 4px; }
-.package-more .package-save { align-self: flex-start; margin-top: 12px !important; }
+.package-more > p:first-of-type { margin-top: 12px; }
 .package-card > .btn-block { margin-top: 18px; }
 .package-list li {
   position: relative; padding-left: 30px; color: var(--text); font-weight: 500;
