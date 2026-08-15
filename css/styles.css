@@ -374,16 +374,26 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
 }
 .package-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .package-card--featured {
-  border-color: var(--orange-500); border-width: 2px; box-shadow: var(--shadow-md);
+  border-color: var(--orange-500); border-width: 2px; box-shadow: var(--shadow-lg);
+  background: linear-gradient(180deg, rgba(242,116,13,0.06), #fff 130px);
+}
+@media (min-width: 861px) {
+  .package-card--featured { transform: translateY(-12px); }
+  .package-card--featured:hover { transform: translateY(-18px); }
 }
 .package-badge {
   position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
   background: var(--orange-600); color: #fff; font-size: .78rem; font-weight: 700;
   letter-spacing: .5px; padding: 6px 16px; border-radius: var(--radius-pill); white-space: nowrap;
+  box-shadow: 0 8px 18px -6px rgba(242,116,13,0.65);
 }
-.package-head { text-align: center; padding-bottom: 20px; border-bottom: 1px solid var(--gray-200); }
-.package-emoji { font-size: 2.2rem; line-height: 1; display: block; }
-.package-head h3 { font-size: 1.4rem; margin-top: 10px; }
+.package-head { text-align: center; padding-bottom: 22px; border-bottom: 1px solid var(--gray-200); }
+.package-emoji {
+  width: 58px; height: 58px; margin: 0 auto 4px; border-radius: 50%;
+  background: rgba(242,116,13,0.10); display: grid; place-items: center;
+  font-size: 1.85rem; line-height: 1;
+}
+.package-head h3 { font-size: 1.4rem; margin-top: 12px; }
 .package-price { margin-top: 8px; font-size: 2rem; font-weight: 800; color: var(--navy-800); }
 .package-save {
   align-self: center; margin-top: 14px;
