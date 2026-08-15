@@ -407,6 +407,10 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
   font-size: .72rem; font-weight: 700; display: grid; place-items: center;
 }
 .package-list li.package-included { color: var(--orange-700); }
+.package-list li.package-excluded { color: var(--gray-500); }
+.package-list li.package-excluded::before {
+  content: "✕"; background: var(--gray-200); color: var(--gray-500);
+}
 .package-note { margin: 0 0 16px; font-size: .82rem; line-height: 1.55; color: var(--text-soft); }
 .package-note a { color: var(--orange-600); font-weight: 600; }
 
