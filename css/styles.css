@@ -274,9 +274,8 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
 .why-card:hover .why-icon { background: rgba(242,116,13,0.20); transform: scale(1.06); }
 
 /* Praktisk info – enkel stablet tekstspalte (ingen kort, ingen ikoner) */
-.about-practical { margin-top: clamp(44px, 6vw, 72px); padding-top: clamp(40px, 5vw, 56px); border-top: 1px solid var(--gray-200); }
-.about-practical .section-head { margin-bottom: clamp(24px, 3.5vw, 36px); }
-.info-list { max-width: 620px; margin: 0 auto; display: grid; gap: 26px; }
+.about-practical > h2 { margin-top: 4px; margin-bottom: clamp(20px, 3vw, 28px); }
+.info-list { max-width: 620px; margin: 0; display: grid; gap: 22px; }
 .info-item + .info-item { border-top: 1px solid var(--gray-200); padding-top: 26px; }
 .info-item h3 { font-size: 1.2rem; }
 .info-item p { color: var(--text-soft); margin-top: 8px; font-size: 1.02rem; line-height: 1.75; }
@@ -408,7 +407,7 @@ h1, h2, h3 { color: var(--navy-900); line-height: 1.15; font-weight: 800; letter
 
 /* ---------- About ---------- */
 .brand-showcase { width: 300px; max-width: 80%; height: auto; margin: 0 auto clamp(30px, 5vw, 48px); }
-.about-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(36px, 6vw, 64px); align-items: center; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 6vw, 64px); align-items: start; }
 .about-text h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); margin-bottom: 6px; }
 .about-text p { color: var(--text-soft); margin-top: 16px; font-size: 1.05rem; }
 .feature-list { list-style: none; margin-top: 24px; display: grid; gap: 12px; }
