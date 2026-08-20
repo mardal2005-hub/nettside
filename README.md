@@ -1,20 +1,25 @@
-# Mardal Utleie – nettside
+# Førre Bygg – nettside (demo)
 
-Moderne, stilren og mobilvennlig nettside for **Mardal Utleie** – utleie av bord,
-klappstoler, partytelt og høyttalere.
+Moderne, profesjonell demo-nettside for byggfirmaet **Førre Bygg** – oppføring,
+oppgradering og utbedring av bolig, hytte og garasje.
 
-Nettsiden er bygget som en statisk side (HTML, CSS og litt JavaScript) uten
-rammeverk eller byggeprosess. Det gir rask lastetid og gjør den enkel å hoste hvor
-som helst.
+Bygget som en statisk side (HTML, CSS og litt JavaScript) uten rammeverk eller
+byggeprosess. Det gir rask lastetid og gjør den enkel å hoste hvor som helst.
+
+> **Demo-merknad:** Innholdet bygger på informasjon som kan bekreftes offentlig
+> (foretaksnavn, org.nr og adresse fra foretaksregisteret) samt tjenester og
+> tekst avtalt for demoen. Telefon og e-post er **plassholdere** og må byttes ut
+> med reelle opplysninger før lansering.
 
 ## Struktur
 
 ```
 .
-├── index.html            # Hele forsiden (hero, produkter, om oss, galleri, FAQ, kontakt)
-├── css/styles.css        # All styling (palett: hvitt, mørk blå, gråtoner)
-├── js/main.js            # Meny, skjemahåndtering og småfunksjoner
-├── assets/img/           # Logo, hero-bilde, produkt- og galleribilder (SVG)
+├── index.html            # Hele forsiden (hero, tjenester, referanser, om oss, kontakt, CTA, footer)
+├── css/styles.css        # All styling (palett: hvit/lys, mørk blå, varm sand/tre)
+├── js/main.js            # Meny, galleri-filter, scroll-animasjon og skjemahåndtering
+├── assets/img/           # Logo/favicon, hero, om-oss og plassholderbilder (SVG)
+│   └── projects/         # Her legges ekte prosjektbilder (.jpg)
 ├── robots.txt            # SEO
 ├── sitemap.xml           # SEO
 └── .nojekyll             # Sikrer at alle filer serveres på GitHub Pages
@@ -22,66 +27,54 @@ som helst.
 
 ## Kjøre lokalt
 
-Åpne `index.html` direkte i nettleseren, eller start en enkel lokal server:
-
 ```bash
 python3 -m http.server 8000
 # åpne http://localhost:8000
 ```
 
-## Publisere (med HTTPS/SSL)
-
-Siden er statisk og kan publiseres gratis med automatisk HTTPS:
-
-- **GitHub Pages** – Slå på Pages for repoet (Settings → Pages). `.nojekyll` er allerede med.
-- **Netlify / Vercel / Cloudflare Pages** – Dra og slipp mappen, eller koble til repoet.
-
-Alle disse gir gratis SSL-sertifikat (HTTPS) automatisk.
-
-## Ting som skal fylles inn senere
-
-Søk gjerne i koden etter disse for å finne dem raskt:
+## Innhold som må fylles inn før lansering
 
 | Hva | Hvor | Merket med |
 |-----|------|-----------|
-| **Facebook / Instagram** | `index.html` (kontakt + footer) | `class="social-link"` med `href="#"` |
-| **Domene** | `index.html` (meta), `robots.txt`, `sitemap.xml` | `www.mardalutleie.no` |
+| **Telefon** | `index.html` (kontakt + footer), `js/main.js` | `+47 XXX XX XXX` / `tel:+47XXXXXXXX`, attributt `data-placeholder` |
+| **E-post** | `index.html` (kontakt + footer), `js/main.js` | `post@forrebygg.no`, attributt `data-placeholder` |
+| **Skjematjeneste** | `index.html` (`<form action=...>`) | `formspree.io/f/your-form-id` |
 
-Telefonnummer (+47 413 92 413), område (Haugalandet) og priser er nå lagt inn.
+Søk i koden etter `data-placeholder` og `your-form-id` for å finne dem raskt.
 
-### Hero-bilde (bakgrunn øverst på siden)
+## Bytte inn ekte bilder
 
-Legg bakgrunnsbildet i `assets/img/hero-photo.jpg`, så vises det automatisk øverst
-på forsiden. Filen må hete nøyaktig `hero-photo.jpg`. Frem til den er på plass, brukes
-en innebygd SVG-illustrasjon som reserve – siden ser altså aldri «tom» ut.
+Bildene i galleriet og hero er tydelige plassholdere (SVG). De byttes inn uten å
+endre HTML – bare legg en fil med riktig navn i mappen, så vises fotoet automatisk:
 
-- Anbefalt størrelse: liggende, ca. 1920×1080 px (eller større)
-- Et mørkt sjikt legges automatisk over bildet så teksten holder seg lesbar
-- Vil du bytte bilde senere, er det bare å erstatte den samme filen
+| Plassering | Filnavn (legg inn ekte foto) | Reserve vises til fotoet er på plass |
+|-----------|------------------------------|--------------------------------------|
+| Hero (øverst) | `assets/img/hero-photo.jpg` | `assets/img/hero.svg` |
+| Om oss | `assets/img/about.jpg` | `assets/img/about.svg` |
+| Referanser | `assets/img/projects/bolig-1.jpg`, `oppussing-1.jpg`, `tilbygg-1.jpg`, `andre-1.jpg`, `bolig-2.jpg`, `oppussing-2.jpg` | tilhørende `ph-*.svg` |
 
-### Kontaktskjema
+Hvert `<img>` har en `onerror`-reserve, så siden ser aldri «tom» ut. Anbefalt
+bildestørrelse: liggende, ca. 1600×1000 px eller større. Vil du legge til flere
+prosjekter, kopiér et `<article class="project ...">`-element og sett `data-cat`
+til `bolig`, `oppussing`, `tilbygg` eller `andre`.
 
-Skjemaet fungerer ut av boksen: hvis ingen skjematjeneste er satt opp, åpner det
-kundens e-postprogram med en ferdig utfylt melding til `kontakt@mardalutleie.no`.
+## Kontaktskjema
 
-For å motta forespørsler automatisk uten at kunden må ha e-postprogram, koble til en
-gratis tjeneste som [Formspree](https://formspree.io):
-
-1. Opprett et skjema hos Formspree og kopier skjema-ID-en.
-2. I `index.html`, bytt ut `action="https://formspree.io/f/your-form-id"` med din egen
-   URL.
-
+Skjemaet fungerer ut av boksen: uten en skjematjeneste åpner det kundens
+e-postprogram med en ferdig utfylt melding. For å motta forespørsler automatisk,
+opprett et skjema hos [Formspree](https://formspree.io) og bytt ut
+`action="https://formspree.io/f/your-form-id"` i `index.html` med din egen URL.
 JavaScript sender da skjemaet i bakgrunnen og viser en takkemelding.
-
-## Legge til flere produkter
-
-Kopiér et `<article class="product-card">`-element i produktseksjonen i `index.html`,
-bytt ut bilde, tittel, beskrivelse og `data-product`-verdien. Legg gjerne til et nytt
-alternativ i `<select id="product">` i kontaktskjemaet.
 
 ## Design
 
-- Palett: hvitt, mørk blå (`#1e3a5f` / `#16243d`) og gråtoner
-- Runde knapper, tydelige overskrifter, ikoner ved hver produktkategori
-- Responsivt/mobilvennlig, med hensyn til `prefers-reduced-motion`
-- SEO: meta-tagger, Open Graph, strukturert data (LocalBusiness), sitemap og robots.txt
+- Palett: hvit/lys bakgrunn, mørk blå (`#0e2740` / `#12324f`) og varm sand/tre (`#c9a678`)
+- Typografi: **Fraunces** (overskrifter) og **Inter** (brødtekst/UI)
+- Diskrete scroll-animasjoner, med hensyn til `prefers-reduced-motion`
+- Responsivt for mobil, tablet og desktop
+- SEO: meta-tagger, Open Graph, strukturert data (GeneralContractor), sitemap og robots.txt
+
+## Publisere (med HTTPS)
+
+Siden er statisk og kan publiseres gratis med automatisk HTTPS via **GitHub Pages**,
+**Netlify**, **Vercel** eller **Cloudflare Pages**.

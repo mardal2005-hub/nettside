@@ -1,7 +1,0 @@
-<svg width="600" height="450" viewBox="0 0 600 450" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bilde fra arrangement" preserveAspectRatio="xMidYMid slice">
-  <defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b6fb6"/><stop offset="1" stop-color="#16243d"/></linearGradient></defs>
-  <rect width="600" height="450" fill="url(#g5)"/>
-  <path d="M300 120 L470 240 H130 Z" fill="#ffffff" opacity="0.4"/>
-  <rect x="170" y="240" width="260" height="110" fill="#16243d" opacity="0.5"/>
-  <rect x="255" y="275" width="90" height="75" rx="4" fill="#3b6fb6" opacity="0.7"/>
-</svg>
