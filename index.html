@@ -48,17 +48,23 @@
   <!-- ===================== NAVBAR ===================== -->
   <header class="nav" id="nav" data-state="top">
     <div class="nav__inner">
+      <nav class="nav__links nav__links--left" aria-label="Hovedmeny venstre">
+        <a href="#tjenester">TJENESTER</a>
+        <a href="#prosjekter">PROSJEKTER</a>
+      </nav>
+
       <a class="nav__brand" href="#top" aria-label="Grønås Bygg – til toppen">
+        <svg class="nav__mark" width="32" height="32" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <path d="M18 40 L32 20 L46 40 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+          <rect x="24" y="38" width="16" height="10" fill="currentColor"/>
+        </svg>
         <span class="nav__name">GRØNÅS BYGG</span>
         <span class="nav__tagline">TØMRER • BYGG • HAUGESUND</span>
       </a>
 
-      <nav class="nav__links" aria-label="Hovedmeny">
-        <a href="#tjenester">TJENESTER</a>
-        <a href="#prosjekter">PROSJEKTER</a>
+      <nav class="nav__links nav__links--right" aria-label="Hovedmeny høyre">
         <a href="#om-oss">OM OSS</a>
         <a href="#kontakt">KONTAKT</a>
-        <a class="btn btn--accent nav__cta" href="#kontakt">FÅ ET TILBUD</a>
       </nav>
 
       <button class="nav__toggle" id="navToggle" aria-label="Åpne meny" aria-expanded="false" aria-controls="mobileMenu">
@@ -74,7 +80,6 @@
       <a href="#prosjekter">Prosjekter</a>
       <a href="#om-oss">Om oss</a>
       <a href="#kontakt">Kontakt</a>
-      <a class="btn btn--accent" href="#kontakt">Få et tilbud</a>
     </nav>
   </div>
 
@@ -90,7 +95,6 @@
       <div class="hero__overlay"></div>
 
       <div class="hero__content">
-        <p class="eyebrow eyebrow--light">TØMRER • BYGG • HAUGESUND</p>
         <h1 class="hero__title">Godt håndverk.<br />Bygg som varer.</h1>
         <p class="hero__lead">
           Grønås Bygg utfører bygge- og tømrertjenester i Haugesund og omegn –
