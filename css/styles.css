@@ -209,8 +209,12 @@ body.menu-open { overflow: hidden; }
 .service {
   display: grid; grid-template-columns: 320px 1fr; gap: clamp(1.5rem, 4vw, 3.5rem);
   align-items: center; padding: clamp(1.6rem, 3vw, 2.4rem) 0;
-  border-bottom: 1px solid var(--line); transition: padding-left .4s var(--ease);
+  border-bottom: 1px solid var(--line); transition: padding .4s var(--ease);
 }
+/* annenhver: bilde til høyre */
+.service:nth-child(even) { grid-template-columns: 1fr 320px; }
+.service:nth-child(even) .service__media { order: 2; }
+.service:nth-child(even) .service__body { order: 1; }
 .service__media { position: relative; overflow: hidden; border-radius: 3px; aspect-ratio: 16 / 10; background: var(--sand); }
 .service__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.1s var(--ease); }
 .service:hover .service__media img { transform: scale(1.05); }
@@ -221,7 +225,10 @@ body.menu-open { overflow: hidden; }
 .service__arrow { font-size: 1.6rem; color: var(--accent); transition: transform .35s var(--ease); align-self: center; }
 .service:hover .service__arrow { transform: translateX(10px); }
 .service:hover .service__title { color: var(--accent-deep); }
-@media (hover: hover) { .service:hover { padding-left: 1rem; } }
+@media (hover: hover) {
+  .service:hover { padding-left: 1rem; }
+  .service:nth-child(even):hover { padding-left: 0; padding-right: 1rem; }
+}
 
 /* ============================================================
    PROSJEKTER
