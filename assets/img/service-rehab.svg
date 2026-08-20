@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000" role="img" aria-label="Fasade under rehabilitering med stillas">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d7c8ad"/><stop offset="1" stop-color="#eaddc6"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a231c"/><stop offset="1" stop-color="#1b1611"/>
+    </linearGradient>
+    <linearGradient id="timber" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a67a49"/><stop offset="1" stop-color="#7a5331"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2e7cf"/><stop offset="1" stop-color="#caa063"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c3b291"/><stop offset="1" stop-color="#a8946f"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9c6f42"/><stop offset="1" stop-color="#7c5330"/>
+    </linearGradient>
+  </defs><rect width="1400" height="1000" fill="url(#sky)"/><rect y="720" width="1400" height="280" fill="url(#ground)"/><circle cx="330" cy="240" r="130" fill="#f0e2c4" opacity="0.5"/><rect x="430" y="250" width="620" height="470" fill="url(#wall)"/><path d="M410 250 L740 120 L1070 250 Z" fill="#171310"/><line x1="464" y1="250" x2="464" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="498" y1="250" x2="498" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="532" y1="250" x2="532" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="566" y1="250" x2="566" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="600" y1="250" x2="600" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="634" y1="250" x2="634" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="668" y1="250" x2="668" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="702" y1="250" x2="702" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="736" y1="250" x2="736" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="770" y1="250" x2="770" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="804" y1="250" x2="804" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="838" y1="250" x2="838" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="872" y1="250" x2="872" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="906" y1="250" x2="906" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="940" y1="250" x2="940" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="974" y1="250" x2="974" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="1008" y1="250" x2="1008" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><line x1="1042" y1="250" x2="1042" y2="720" stroke="#000" stroke-opacity="0.26" stroke-width="2"/><rect x="470" y="330" width="120" height="150" fill="url(#glass)"/><rect x="470" y="330" width="120" height="150" fill="none" stroke="#0f0c09" stroke-width="7"/><rect x="690" y="330" width="120" height="150" fill="url(#glass)"/><rect x="690" y="330" width="120" height="150" fill="none" stroke="#0f0c09" stroke-width="7"/><rect x="910" y="330" width="120" height="150" fill="url(#glass)"/><rect x="910" y="330" width="120" height="150" fill="none" stroke="#0f0c09" stroke-width="7"/><g stroke="#b9b2a4" stroke-width="10"><line x1="1060" y1="200" x2="1060" y2="720"/><line x1="1150" y1="200" x2="1150" y2="720"/><line x1="400" y1="200" x2="400" y2="720"/><line x1="400" y1="360" x2="1150" y2="360"/><line x1="400" y1="520" x2="1150" y2="520"/><line x1="400" y1="200" x2="1150" y2="200"/></g><ellipse cx="740" cy="726" rx="430" ry="24" fill="#000" opacity="0.12"/><rect width="1400" height="1000" fill="#000" opacity="0.03"/></svg>

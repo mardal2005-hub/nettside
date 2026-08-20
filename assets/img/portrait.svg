@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100" role="img" aria-label="Plassholder for portrettbilde av innehaver">
+  <defs>
+    <linearGradient id="pbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a231c"/><stop offset="1" stop-color="#181410"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1100" fill="url(#pbg)"/>
+  <g fill="none" stroke="#6b5c48" stroke-width="3">
+    <circle cx="450" cy="430" r="150"/>
+    <path d="M230 900 C 250 700 380 630 450 630 C 520 630 650 700 670 900"/>
+  </g>
+  <text x="450" y="1000" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="30" letter-spacing="4" fill="#8a7a63">PORTRETT</text>
+  <text x="450" y="1042" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" letter-spacing="2" fill="#6b5c48">Byttes med eget bilde</text>
+</svg>

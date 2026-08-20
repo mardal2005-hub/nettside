@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="Moderne kjökken med tregulv og varmt lys">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d7c8ad"/><stop offset="1" stop-color="#eaddc6"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a231c"/><stop offset="1" stop-color="#1b1611"/>
+    </linearGradient>
+    <linearGradient id="timber" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a67a49"/><stop offset="1" stop-color="#7a5331"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2e7cf"/><stop offset="1" stop-color="#caa063"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c3b291"/><stop offset="1" stop-color="#a8946f"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9c6f42"/><stop offset="1" stop-color="#7c5330"/>
+    </linearGradient>
+  </defs><rect width="1200" height="900" fill="#ece2cf"/><rect x="0" y="0" width="1200" height="560" fill="#e4d8c1"/><rect x="0" y="560" width="1200" height="340" fill="url(#wood)"/><g stroke="#5f4026" stroke-opacity="0.3" stroke-width="3"><line x1="0" y1="600" x2="1200" y2="600"/><line x1="0" y1="640" x2="1200" y2="640"/><line x1="0" y1="680" x2="1200" y2="680"/><line x1="0" y1="720" x2="1200" y2="720"/><line x1="0" y1="760" x2="1200" y2="760"/><line x1="0" y1="800" x2="1200" y2="800"/><line x1="0" y1="840" x2="1200" y2="840"/><line x1="0" y1="880" x2="1200" y2="880"/></g><rect x="120" y="470" width="640" height="120" fill="url(#wall)"/><g stroke="#000" stroke-opacity="0.3" stroke-width="2"><line x1="240" y1="470" x2="240" y2="590"/><line x1="360" y1="470" x2="360" y2="590"/><line x1="480" y1="470" x2="480" y2="590"/><line x1="600" y1="470" x2="600" y2="590"/><line x1="720" y1="470" x2="720" y2="590"/></g><rect x="110" y="452" width="660" height="20" fill="#c9b48c"/><rect x="120" y="250" width="640" height="24" fill="#7c5330"/><rect x="120" y="290" width="640" height="16" fill="#7c5330" opacity="0.7"/><rect x="820" y="180" width="300" height="360" fill="url(#glass)"/><line x1="970" y1="180" x2="970" y2="540" stroke="#cbb488" stroke-width="7"/><line x1="820" y1="360" x2="1120" y2="360" stroke="#cbb488" stroke-width="7"/><rect x="820" y="180" width="300" height="360" fill="none" stroke="#b6a17a" stroke-width="9"/><g stroke="#2a231c" stroke-width="4"><line x1="300" y1="0" x2="300" y2="150"/><line x1="440" y1="0" x2="440" y2="180"/></g><circle cx="300" cy="160" r="26" fill="#2a231c"/><circle cx="440" cy="190" r="26" fill="#2a231c"/><rect width="1200" height="900" fill="#000" opacity="0.03"/></svg>

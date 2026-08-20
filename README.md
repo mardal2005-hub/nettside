@@ -1,20 +1,24 @@
-# Mardal Utleie – nettside
+# Grønås Bygg – nettside (demo)
 
-Moderne, stilren og mobilvennlig nettside for **Mardal Utleie** – utleie av bord,
-klappstoler, partytelt og høyttalere.
+Profesjonell, mobilvennlig nettside-demo for **Grønås Bygg** – tømrer- og
+byggetjenester i Haugesund og omegn.
 
-Nettsiden er bygget som en statisk side (HTML, CSS og litt JavaScript) uten
-rammeverk eller byggeprosess. Det gir rask lastetid og gjør den enkel å hoste hvor
-som helst.
+Dette er en **salgsdemo** som skal vise hvordan en ferdig nettside for Grønås Bygg
+kan se ut. Siden er ~90–95 % ferdig; innhold som må bekreftes av eieren er tydelig
+merket i koden og diskret på siden.
+
+Bygget som en statisk side (HTML, CSS og litt vanilla JavaScript) uten rammeverk
+eller byggeprosess. Det gir rask lastetid og enkel hosting hvor som helst.
 
 ## Struktur
 
 ```
 .
-├── index.html            # Hele forsiden (hero, produkter, om oss, galleri, FAQ, kontakt)
-├── css/styles.css        # All styling (palett: hvitt, mørk blå, gråtoner)
-├── js/main.js            # Meny, skjemahåndtering og småfunksjoner
-├── assets/img/           # Logo, hero-bilde, produkt- og galleribilder (SVG)
+├── index.html            # Hele forsiden (hero, intro, tjenester, prosjekter, om oss, kontakt)
+├── personvern.html       # Personvernerklæring
+├── css/styles.css        # All styling (palett: sand, nær sort, mørk brun, jordfarget aksent)
+├── js/main.js            # Navbar-scroll, mobilmeny, reveal, lightbox, skjema
+├── assets/img/           # SVG-demobilder (hero, tjenester, prosjekter, portrett)
 ├── robots.txt            # SEO
 ├── sitemap.xml           # SEO
 └── .nojekyll             # Sikrer at alle filer serveres på GitHub Pages
@@ -22,66 +26,49 @@ som helst.
 
 ## Kjøre lokalt
 
-Åpne `index.html` direkte i nettleseren, eller start en enkel lokal server:
-
 ```bash
 python3 -m http.server 8000
 # åpne http://localhost:8000
 ```
 
-## Publisere (med HTTPS/SSL)
+## Design
 
-Siden er statisk og kan publiseres gratis med automatisk HTTPS:
+- **Palett:** varm off-white/sand, nær sort tekst, mørk brun sekundær, jordfarget aksent (treverk + arkitektur).
+- **Typografi:** Fraunces (serif) til overskrifter, Inter (sans-serif) til brødtekst.
+- **Animasjon:** diskré fade/translate ved scroll, rolig zoom på bilder, navbar bytter bakgrunn ved scroll. Respekterer `prefers-reduced-motion`.
+- **Responsivt:** testet for desktop (1440), laptop (1366), tablet (768) og mobil (390/375). Ingen horisontal scrolling.
+- **SEO/tilgjengelighet:** semantisk HTML, korrekt H1/H2-hierarki, alt-tekst, `lazy` bilder, JSON-LD (GeneralContractor), skip-link, tastaturnavigasjon.
 
-- **GitHub Pages** – Slå på Pages for repoet (Settings → Pages). `.nojekyll` er allerede med.
-- **Netlify / Vercel / Cloudflare Pages** – Dra og slipp mappen, eller koble til repoet.
+## Bekreftede fakta som er brukt
 
-Alle disse gir gratis SSL-sertifikat (HTTPS) automatisk.
+- Grønås Bygg, Haugesund
+- Enkeltpersonforetak – oppføring av bygninger
+- Innehaver: Espen Grønås
+- Etablert 2022
+- Sentralt godkjent (uten å antyde godkjenningsområder)
+- Org.nr. 929 612 671 (i footer)
+- Telefon: 98 60 69 50
 
-## Ting som skal fylles inn senere
+## Demo-innhold som skal fylles inn / erstattes
 
-Søk gjerne i koden etter disse for å finne dem raskt:
+Søk i koden etter disse for å finne dem raskt:
 
 | Hva | Hvor | Merket med |
 |-----|------|-----------|
-| **Facebook / Instagram** | `index.html` (kontakt + footer) | `class="social-link"` med `href="#"` |
-| **Domene** | `index.html` (meta), `robots.txt`, `sitemap.xml` | `www.mardalutleie.no` |
+| **Prosjekt- og tjenestebilder** | `assets/img/*.svg` | `demo-tag` / «Demo – byttes med egne prosjektbilder» |
+| **Portrett av innehaver** | `assets/img/portrait.svg` | «Plassholder – byttes med eget bilde» |
+| **Tjenester** | `index.html` (`#tjenester`) | «Demo-innhold – tjenestene tilpasses …» |
+| **Kontaktskjema → e-post** | `index.html` / `js/main.js` | «Demo – skjemaet kobles til e-post ved lansering.» |
+| **Domene** | `index.html` (canonical/OG), `robots.txt`, `sitemap.xml` | `gronasbygg.no` (plassholder) |
 
-Telefonnummer (+47 413 92 413), område (Haugalandet) og priser er nå lagt inn.
+## Bevisste valg for troverdighet
 
-### Hero-bilde (bakgrunn øverst på siden)
+Det er **ikke** funnet opp kundeanmeldelser, antall år erfaring, antall ansatte,
+prosjekttall, sertifiseringer, priser eller garantier. Der informasjon mangler, er
+det brukt tydelige plassholdere som fylles inn etter avklaring med eieren.
 
-Legg bakgrunnsbildet i `assets/img/hero-photo.jpg`, så vises det automatisk øverst
-på forsiden. Filen må hete nøyaktig `hero-photo.jpg`. Frem til den er på plass, brukes
-en innebygd SVG-illustrasjon som reserve – siden ser altså aldri «tom» ut.
+## Kontaktskjema ved lansering
 
-- Anbefalt størrelse: liggende, ca. 1920×1080 px (eller større)
-- Et mørkt sjikt legges automatisk over bildet så teksten holder seg lesbar
-- Vil du bytte bilde senere, er det bare å erstatte den samme filen
-
-### Kontaktskjema
-
-Skjemaet fungerer ut av boksen: hvis ingen skjematjeneste er satt opp, åpner det
-kundens e-postprogram med en ferdig utfylt melding til `kontakt@mardalutleie.no`.
-
-For å motta forespørsler automatisk uten at kunden må ha e-postprogram, koble til en
-gratis tjeneste som [Formspree](https://formspree.io):
-
-1. Opprett et skjema hos Formspree og kopier skjema-ID-en.
-2. I `index.html`, bytt ut `action="https://formspree.io/f/your-form-id"` med din egen
-   URL.
-
-JavaScript sender da skjemaet i bakgrunnen og viser en takkemelding.
-
-## Legge til flere produkter
-
-Kopiér et `<article class="product-card">`-element i produktseksjonen i `index.html`,
-bytt ut bilde, tittel, beskrivelse og `data-product`-verdien. Legg gjerne til et nytt
-alternativ i `<select id="product">` i kontaktskjemaet.
-
-## Design
-
-- Palett: hvitt, mørk blå (`#1e3a5f` / `#16243d`) og gråtoner
-- Runde knapper, tydelige overskrifter, ikoner ved hver produktkategori
-- Responsivt/mobilvennlig, med hensyn til `prefers-reduced-motion`
-- SEO: meta-tagger, Open Graph, strukturert data (LocalBusiness), sitemap og robots.txt
+Skjemaet er visuelt ferdig, men er ikke koblet til e-post i demoen. Ved lansering
+kan det kobles til f.eks. [Formspree](https://formspree.io) eller en serverløsning
+ved å sende feltene `navn`, `telefon`, `epost`, `type` og `melding`.
