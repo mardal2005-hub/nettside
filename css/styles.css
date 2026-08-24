@@ -110,8 +110,8 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.04;letter-spa
 .mast-nav a:hover{opacity:1}
 .mast-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1.5px;background:var(--sand);transition:right .28s var(--ease)}
 .mast-nav a:hover::after{right:0}
-.mast-nav a.mast-cta{color:var(--cream);opacity:1;margin-left:6px}
-.mast-nav a.mast-cta:hover{color:#fff}
+.mast-nav a.mast-cta{margin-left:8px;padding:11px 20px;font-size:12px;color:var(--ink);opacity:1;border:1px solid var(--line)}
+.mast-nav a.mast-cta:hover{background:var(--ink);border-color:var(--ink);color:var(--cream)}
 .mast-nav a.mast-cta::after{display:none}
 
 /* drawer-meny (kun mobil) */
