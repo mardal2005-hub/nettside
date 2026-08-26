@@ -1,244 +1,179 @@
-/* ============================================================
-   Mardal Utleie – main.js
-   ============================================================ */
+/* Haugaland Byggpartner AS — interactions
+   Vanilla JS, no dependencies. Respects prefers-reduced-motion. */
 (function () {
-  'use strict';
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
-  /* ---------- Mobile nav ---------- */
-  var toggle = document.getElementById('navToggle');
-  var nav = document.getElementById('mainNav');
+  /* ---------- year ---------- */
+  var y = $("#year"); if (y) y.textContent = new Date().getFullYear();
 
-  if (toggle && nav) {
-    toggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.setAttribute('aria-label', open ? 'Lukk meny' : 'Åpne meny');
-    });
+  /* ---------- hero intro ---------- */
+  var hero = $("#hero");
+  if (hero) { requestAnimationFrame(function () { hero.classList.add("is-in"); }); }
 
-    // Close menu when a link is clicked (mobile)
-    nav.addEventListener('click', function (e) {
-      if (e.target.closest('a') && nav.classList.contains('open')) {
-        nav.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Åpne meny');
+  /* ---------- nav: solid + hide on scroll down ---------- */
+  var nav = $("#nav");
+  var lastY = window.pageYOffset;
+  var ticking = false;
+  function onScroll() {
+    var yy = window.pageYOffset;
+    if (nav) {
+      nav.classList.toggle("is-solid", yy > 40);
+      if (!document.body.classList.contains("menu-open")) {
+        if (yy > lastY && yy > 320) nav.classList.add("is-hidden");
+        else nav.classList.remove("is-hidden");
       }
-    });
+    }
+    var tt = $("#toTop");
+    if (tt) tt.classList.toggle("is-on", yy > window.innerHeight * 0.9);
+    lastY = yy;
+    ticking = false;
   }
+  window.addEventListener("scroll", function () {
+    if (!ticking) { window.requestAnimationFrame(onScroll); ticking = true; }
+  }, { passive: true });
+  onScroll();
 
-  /* ---------- Current year in footer ---------- */
-  var yearEl = document.getElementById('year');
-  if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+  /* ---------- mobile menu ---------- */
+  var burger = $("#burger");
+  var menu = $("#mobileMenu");
+  function setMenu(open) {
+    document.body.classList.toggle("menu-open", open);
+    if (burger) { burger.setAttribute("aria-expanded", String(open)); burger.setAttribute("aria-label", open ? "Lukk meny" : "Åpne meny"); }
+    if (menu) menu.setAttribute("aria-hidden", String(!open));
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+  if (burger) burger.addEventListener("click", function () { setMenu(!document.body.classList.contains("menu-open")); });
+  if (menu) $$("a", menu).forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
 
-  /* ---------- Scroll reveal (subtle fade-in) ---------- */
-  var revealSelectors = '.section-head, .product-card, .package-card, .why-card, .step-card, .stat-tile, .testimonial-card, .area-chip, .gallery-item, .about-text, .about-stats, .contact-info, .contact-form-wrap, .contact-map, .cta-inner, .faq-item';
-  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var revealEls = document.querySelectorAll(revealSelectors);
-
-  if (revealEls.length && 'IntersectionObserver' in window && !prefersReduced) {
-    revealEls.forEach(function (el) { el.classList.add('reveal'); });
-    var io = new IntersectionObserver(function (entries, obs) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          obs.unobserve(entry.target);
-        }
+  /* ---------- reveal on scroll ---------- */
+  var revealEls = $$("[data-reveal]");
+  if (reduce || !("IntersectionObserver" in window)) {
+    revealEls.forEach(function (el) { el.classList.add("is-in"); });
+  } else {
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("is-in"); ro.unobserve(en.target); }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    revealEls.forEach(function (el) { io.observe(el); });
+    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.12 });
+    revealEls.forEach(function (el) { ro.observe(el); });
   }
 
-  /* ---------- Header: compact/blur state on scroll ---------- */
-  var header = document.querySelector('.site-header');
-  if (header) {
-    var onScroll = function () {
-      if (window.scrollY > 12) { header.classList.add('scrolled'); }
-      else { header.classList.remove('scrolled'); }
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
-
-  /* ---------- Scroll-spy: highlight active nav link ---------- */
-  var navLinks = Array.prototype.slice.call(
-    document.querySelectorAll('.main-nav a[href^="#"]')
-  );
-  if (navLinks.length && 'IntersectionObserver' in window) {
-    var linkById = {};
-    var spySections = [];
-    navLinks.forEach(function (link) {
-      var id = link.getAttribute('href').slice(1);
-      var section = id && document.getElementById(id);
-      if (section) { linkById[id] = link; spySections.push(section); }
-    });
-
-    var setActive = function (id) {
-      navLinks.forEach(function (l) { l.classList.remove('active'); });
-      if (linkById[id]) { linkById[id].classList.add('active'); }
-    };
-
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) { setActive(entry.target.id); }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-    spySections.forEach(function (s) { spy.observe(s); });
-  }
-
-  /* ---------- Hide floating call button near contact/footer ---------- */
-  var fab = document.querySelector('.call-fab');
-  if (fab && 'IntersectionObserver' in window) {
-    var zones = [
-      document.getElementById('kontakt'),
-      document.querySelector('.cta'),
-      document.querySelector('.site-footer')
-    ].filter(Boolean);
-    var zoneVisible = zones.map(function () { return false; });
-    var fabObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var idx = zones.indexOf(entry.target);
-        if (idx > -1) { zoneVisible[idx] = entry.isIntersecting; }
-      });
-      var anyVisible = zoneVisible.some(function (v) { return v; });
-      fab.classList.toggle('is-hidden', anyVisible);
-    }, { threshold: 0 });
-    zones.forEach(function (z) { fabObs.observe(z); });
-  }
-
-  /* ---------- Hero scroll parallax (image + text depth) ---------- */
-  var hero = document.querySelector('.hero');
-  var heroMedia = document.querySelector('.hero-media');
-  var heroContent = document.querySelector('.hero-content');
-
-  if (hero && heroMedia && !prefersReduced) {
-    var heroH = hero.offsetHeight || 1;
-    var getConf = function () {
-      // Weaker, cheaper effect on smaller screens
-      return window.matchMedia('(max-width: 768px)').matches
-        ? { mediaShift: 0.06, scaleFrom: 1.04, scaleAdd: 0.05, textShift: 0.03, fade: 0.9 }
-        : { mediaShift: 0.12, scaleFrom: 1.05, scaleAdd: 0.07, textShift: 0.06, fade: 0.7 };
-    };
-    var conf = getConf();
-    var ticking = false;
-
-    var render = function () {
-      ticking = false;
-      var rect = hero.getBoundingClientRect();
-      if (rect.bottom <= 0) { return; }               // hero fully scrolled away
-      var p = Math.min(Math.max(-rect.top / heroH, 0), 1);
-
-      // Background: drifts down slightly + subtle zoom => appears to move up slowly
-      var mediaY = (p * heroH * conf.mediaShift).toFixed(1);
-      var scale = (conf.scaleFrom + p * conf.scaleAdd).toFixed(3);
-      heroMedia.style.transform = 'translate3d(0,' + mediaY + 'px,0) scale(' + scale + ')';
-
-      // Foreground text: moves a touch faster + fades => depth + glides into next section
-      if (heroContent) {
-        var textY = (-p * heroH * conf.textShift).toFixed(1);
-        var op = Math.max(0, 1 - p / conf.fade).toFixed(2);
-        heroContent.style.transform = 'translate3d(0,' + textY + 'px,0)';
-        heroContent.style.opacity = op;
-      }
-    };
-
-    var onScrollHero = function () {
-      if (!ticking) { ticking = true; window.requestAnimationFrame(render); }
-    };
-
-    window.addEventListener('scroll', onScrollHero, { passive: true });
-    window.addEventListener('resize', function () {
-      heroH = hero.offsetHeight || 1;
-      conf = getConf();
-      render();
-    }, { passive: true });
-    render();
-  }
-
-  /* ---------- Prefill product in contact form ---------- */
-  var productSelect = document.getElementById('product');
-  var messageField = document.getElementById('message');
-
-  document.querySelectorAll('[data-product]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var product = btn.getAttribute('data-product');
-      if (productSelect) {
-        for (var i = 0; i < productSelect.options.length; i++) {
-          if (productSelect.options[i].value === product) {
-            productSelect.selectedIndex = i;
-            break;
-          }
-        }
-      }
-      if (messageField && !messageField.value.trim()) {
-        messageField.value = 'Hei! Jeg ønsker et tilbud på ' + product + '. ';
-      }
-    });
+  /* ---------- stagger reveals within a group ---------- */
+  $$(".stats, .why__grid, .svc-list, .area__list").forEach(function (group) {
+    var kids = $$("[data-reveal]", group);
+    kids.forEach(function (el, i) { el.style.transitionDelay = (i * 70) + "ms"; });
   });
 
-  /* ---------- Contact form handling ---------- */
-  var form = document.getElementById('contactForm');
-  var status = document.getElementById('formStatus');
-
-  function setStatus(msg, type) {
-    if (!status) return;
-    status.textContent = msg;
-    status.className = 'form-status' + (type ? ' ' + type : '');
+  /* ---------- count-up ---------- */
+  function animateCount(el) {
+    var target = parseFloat(el.getAttribute("data-count"));
+    var dec = parseInt(el.getAttribute("data-decimals") || "0", 10);
+    var suffix = el.getAttribute("data-suffix") || "";
+    if (reduce) { el.textContent = target.toFixed(dec).replace(".", ",") + suffix; return; }
+    var start = performance.now(), dur = 1400;
+    function tick(now) {
+      var p = Math.min((now - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = target * eased;
+      el.textContent = val.toFixed(dec).replace(".", ",") + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  var counters = $$("[data-count]");
+  if (counters.length) {
+    if (!("IntersectionObserver" in window)) { counters.forEach(animateCount); }
+    else {
+      var co = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { animateCount(en.target); co.unobserve(en.target); }
+        });
+      }, { threshold: 0.6 });
+      counters.forEach(function (el) { co.observe(el); });
+    }
   }
 
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      var action = form.getAttribute('action') || '';
-      var usingPlaceholder = action.indexOf('your-form-id') !== -1 || action === '';
-
-      // Fallback: open the user's e-mail client with a prefilled message.
-      if (usingPlaceholder) {
-        var data = new FormData(form);
-        var lines = [
-          'Navn: ' + (data.get('navn') || ''),
-          'E-post: ' + (data.get('epost') || ''),
-          'Telefon: ' + (data.get('telefon') || ''),
-          'Produkt: ' + (data.get('produkt') || ''),
-          'Dato: ' + (data.get('dato') || ''),
-          '',
-          'Melding:',
-          (data.get('melding') || '')
-        ];
-        var subject = 'Forespørsel om utleie' + (data.get('produkt') ? ' – ' + data.get('produkt') : '');
-        var mailto = 'mailto:kontakt@mardalutleie.no'
-          + '?subject=' + encodeURIComponent(subject)
-          + '&body=' + encodeURIComponent(lines.join('\n'));
-        window.location.href = mailto;
-        setStatus('Åpner e-postprogrammet ditt … Får du ikke opp noe, send oss en e-post direkte til kontakt@mardalutleie.no.', 'success');
-        return;
-      }
-
-      // Real submission (e.g. Formspree) via fetch.
-      var submitBtn = form.querySelector('button[type="submit"]');
-      if (submitBtn) { submitBtn.disabled = true; }
-      setStatus('Sender …', '');
-
-      fetch(action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      }).then(function (res) {
-        if (res.ok) {
-          form.reset();
-          setStatus('Takk! Forespørselen din er sendt. Vi tar kontakt så snart som mulig.', 'success');
-        } else {
-          setStatus('Beklager, noe gikk galt. Prøv igjen eller send en e-post til kontakt@mardalutleie.no.', 'error');
-        }
-      }).catch(function () {
-        setStatus('Beklager, noe gikk galt. Prøv igjen eller send en e-post til kontakt@mardalutleie.no.', 'error');
-      }).finally(function () {
-        if (submitBtn) { submitBtn.disabled = false; }
+  /* ---------- services cursor-follow image ---------- */
+  var hover = $("#svcHover");
+  var hoverImg = hover ? $("img", hover) : null;
+  var canHover = window.matchMedia("(hover:hover) and (min-width:900px)").matches;
+  if (hover && hoverImg && canHover && !reduce) {
+    var raf = null, tx = 0, ty = 0, cx = 0, cy = 0, active = false;
+    $$(".svc").forEach(function (svc) {
+      svc.addEventListener("mouseenter", function () {
+        var src = svc.getAttribute("data-img");
+        if (src) { hoverImg.src = src; }
+        hover.classList.add("is-on"); active = true;
       });
+      svc.addEventListener("mouseleave", function () { hover.classList.remove("is-on"); active = false; });
     });
+    var svcList = $("#svcList");
+    if (svcList) svcList.addEventListener("mousemove", function (e) { tx = e.clientX; ty = e.clientY; });
+    function loop() {
+      cx += (tx - cx) * 0.14; cy += (ty - cy) * 0.14;
+      hover.style.transform = "translate(" + cx + "px," + cy + "px) translate(-50%,-50%)" + (active ? " scale(1)" : " scale(.9)");
+      raf = requestAnimationFrame(loop);
+    }
+    loop();
+  }
+
+  /* ---------- contact form ---------- */
+  var form = $("#contactForm");
+  var note = $("#formNote");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      var action = form.getAttribute("action") || "";
+      var usesFormspree = action.indexOf("formspree.io") !== -1 && action.indexOf("your-form-id") === -1;
+      if (!form.checkValidity()) { return; /* let native validation show */ }
+      if (!usesFormspree) {
+        // No form backend configured yet — fall back to a prefilled e-mail.
+        e.preventDefault();
+        var navn = encodeURIComponent($("#navn").value || "");
+        var epost = encodeURIComponent($("#epost").value || "");
+        var tlf = encodeURIComponent($("#telefon").value || "");
+        var type = encodeURIComponent($("#type").value || "");
+        var melding = encodeURIComponent($("#melding").value || "");
+        var body = "Navn: " + navn + "%0D%0AE-post: " + epost + "%0D%0ATelefon: " + tlf +
+          "%0D%0AGjelder: " + type + "%0D%0A%0D%0A" + melding;
+        window.location.href = "mailto:akbyggpartneras@gmail.com?subject=" +
+          encodeURIComponent("Forespørsel fra nettsiden — " + decodeURIComponent(type)) + "&body=" + body;
+        if (note) { note.textContent = "Åpner e-postprogrammet ditt …"; note.className = "form__note is-ok"; }
+        return;
+      }
+      // Formspree AJAX
+      e.preventDefault();
+      if (note) { note.textContent = "Sender …"; note.className = "form__note"; }
+      fetch(action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+        .then(function (r) {
+          if (r.ok) {
+            form.reset();
+            if (note) { note.textContent = "Takk! Vi tar kontakt så snart vi kan."; note.className = "form__note is-ok"; }
+          } else { throw new Error("bad"); }
+        })
+        .catch(function () {
+          if (note) { note.textContent = "Noe gikk galt. Ring oss gjerne på 407 41 934."; note.className = "form__note is-err"; }
+        });
+    });
+  }
+
+  /* ---------- active nav link ---------- */
+  var sections = $$("main section[id]");
+  var navLinks = $$(".nav__links a");
+  if (sections.length && navLinks.length && "IntersectionObserver" in window) {
+    var byId = {};
+    navLinks.forEach(function (a) { byId[a.getAttribute("href")] = a; });
+    var so = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          var a = byId["#" + en.target.id];
+          if (a) { navLinks.forEach(function (l) { l.removeAttribute("data-active"); }); a.setAttribute("data-active", "true"); }
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    sections.forEach(function (s) { so.observe(s); });
   }
 })();

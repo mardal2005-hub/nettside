@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#f4f1ea"/>
+  <g fill="none" stroke="#181a1e" stroke-width="6.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 30 L32 13 L52 30"/>
+  </g>
+  <text x="20.4" y="49" font-family="'Space Grotesk','Arial Narrow',Arial,sans-serif" font-size="24" font-weight="700" fill="#181a1e">H</text>
+  <text x="33.6" y="49" font-family="'Space Grotesk','Arial Narrow',Arial,sans-serif" font-size="24" font-weight="700" fill="#33506b">B</text>
+</svg>

@@ -1,87 +1,86 @@
-# Mardal Utleie – nettside
+# Haugaland Byggpartner AS — nettside
 
-Moderne, stilren og mobilvennlig nettside for **Mardal Utleie** – utleie av bord,
-klappstoler, partytelt og høyttalere.
+Ny, skreddersydd nettside for **Haugaland Byggpartner AS** — tømrer og entreprenør
+med base på Kolnes, som jobber over hele Haugalandet og i Rogaland.
 
-Nettsiden er bygget som en statisk side (HTML, CSS og litt JavaScript) uten
-rammeverk eller byggeprosess. Det gir rask lastetid og gjør den enkel å hoste hvor
-som helst.
+Designet er bygget fra bunnen av med en egen visuell identitet: et redaksjonelt,
+arkitektonisk uttrykk med mørk «ink»-palett, varm «bone»-kontrast, merkevarens
+slate-blå og en varm tømmer-oker som aksent. Store prosjektbilder, mye luft og
+elegant typografi (Fraunces + Space Grotesk).
+
+Siden er statisk (HTML, CSS og litt JavaScript) — ingen rammeverk eller
+byggeprosess. Rask, enkel å hoste, og med automatisk HTTPS på GitHub Pages /
+Netlify / Vercel / Cloudflare Pages.
 
 ## Struktur
 
 ```
 .
-├── index.html            # Hele forsiden (hero, produkter, om oss, galleri, FAQ, kontakt)
-├── css/styles.css        # All styling (palett: hvitt, mørk blå, gråtoner)
-├── js/main.js            # Meny, skjemahåndtering og småfunksjoner
-├── assets/img/           # Logo, hero-bilde, produkt- og galleribilder (SVG)
-├── robots.txt            # SEO
-├── sitemap.xml           # SEO
-└── .nojekyll             # Sikrer at alle filer serveres på GitHub Pages
+├── index.html          # Hele forsiden (hero, intro, tjenester, prosjekter,
+│                        #   hvorfor oss, om oss, område, anmeldelser, CTA, kontakt)
+├── personvern.html     # Personvernerklæring
+├── css/styles.css      # All styling + designsystem
+├── js/main.js          # Meny, animasjoner, tellere, skjema
+├── assets/img/         # Prosjektbilder + og-image (sosial deling)
+├── favicon.svg         # HB-monogram
+├── robots.txt · sitemap.xml · CNAME · .nojekyll
 ```
 
 ## Kjøre lokalt
-
-Åpne `index.html` direkte i nettleseren, eller start en enkel lokal server:
 
 ```bash
 python3 -m http.server 8000
 # åpne http://localhost:8000
 ```
 
-## Publisere (med HTTPS/SSL)
+## Innhold som er lagt inn (hentet fra bedriftens egne kanaler)
 
-Siden er statisk og kan publiseres gratis med automatisk HTTPS:
+| Felt | Verdi |
+|------|-------|
+| Slagord | Partner i alle bygg |
+| Telefon | 407 41 934 |
+| E-post | akbyggpartneras@gmail.com |
+| Adresse | Skrevegen 69, 5541 Kolnes |
+| Instagram | @haugaland_byggpartner_as |
+| Google | 5,0 ★ (5 anmeldelser) |
+| Område | Haugalandet & Rogaland |
 
-- **GitHub Pages** – Slå på Pages for repoet (Settings → Pages). `.nojekyll` er allerede med.
-- **Netlify / Vercel / Cloudflare Pages** – Dra og slipp mappen, eller koble til repoet.
+Prosjektbildene er hentet og beskåret fra bedriftens Facebook/Google-profil.
 
-Alle disse gir gratis SSL-sertifikat (HTTPS) automatisk.
+## Ting du kan fylle inn / justere
 
-## Ting som skal fylles inn senere
+Søk i koden etter disse:
 
-Søk gjerne i koden etter disse for å finne dem raskt:
-
-| Hva | Hvor | Merket med |
-|-----|------|-----------|
-| **Facebook / Instagram** | `index.html` (kontakt + footer) | `class="social-link"` med `href="#"` |
-| **Domene** | `index.html` (meta), `robots.txt`, `sitemap.xml` | `www.mardalutleie.no` |
-
-Telefonnummer (+47 413 92 413), område (Haugalandet) og priser er nå lagt inn.
-
-### Hero-bilde (bakgrunn øverst på siden)
-
-Legg bakgrunnsbildet i `assets/img/hero-photo.jpg`, så vises det automatisk øverst
-på forsiden. Filen må hete nøyaktig `hero-photo.jpg`. Frem til den er på plass, brukes
-en innebygd SVG-illustrasjon som reserve – siden ser altså aldri «tom» ut.
-
-- Anbefalt størrelse: liggende, ca. 1920×1080 px (eller større)
-- Et mørkt sjikt legges automatisk over bildet så teksten holder seg lesbar
-- Vil du bytte bilde senere, er det bare å erstatte den samme filen
+- **Domene** — `index.html` (meta/canonical/OG), `robots.txt`, `sitemap.xml` og
+  `CNAME` bruker `haugalandbyggpartner.no` som antatt domene. Bytt til det domenet
+  dere faktisk eier, eller **slett `CNAME`** for å bruke standard `*.github.io`-adresse.
+- **Org.nr.** — vises som `Org.nr. XXX XXX XXX` i footer og personvern. Bytt til
+  riktig organisasjonsnummer.
+- **Kontaktskjema** — se under.
+- **Facebook-lenke** — footer peker på et Facebook-søk. Bytt til direkte side-URL
+  når den er kjent.
+- **Bedre bilder** — legg gjerne inn høyoppløste, rene prosjektfoto i `assets/img/`
+  (behold samme filnavn) for enda skarpere resultat.
 
 ### Kontaktskjema
 
-Skjemaet fungerer ut av boksen: hvis ingen skjematjeneste er satt opp, åpner det
-kundens e-postprogram med en ferdig utfylt melding til `kontakt@mardalutleie.no`.
+Skjemaet virker ut av boksen: uten skjematjeneste åpner det e-postprogrammet med en
+ferdig utfylt melding til `akbyggpartneras@gmail.com`.
 
-For å motta forespørsler automatisk uten at kunden må ha e-postprogram, koble til en
-gratis tjeneste som [Formspree](https://formspree.io):
+For å motta forespørsler automatisk, koble til en gratis tjeneste som
+[Formspree](https://formspree.io):
 
-1. Opprett et skjema hos Formspree og kopier skjema-ID-en.
-2. I `index.html`, bytt ut `action="https://formspree.io/f/your-form-id"` med din egen
-   URL.
+1. Opprett et skjema og kopier skjema-ID-en.
+2. I `index.html`, bytt `action="https://formspree.io/f/your-form-id"` med din URL.
 
 JavaScript sender da skjemaet i bakgrunnen og viser en takkemelding.
 
-## Legge til flere produkter
+## Design & teknikk
 
-Kopiér et `<article class="product-card">`-element i produktseksjonen i `index.html`,
-bytt ut bilde, tittel, beskrivelse og `data-product`-verdien. Legg gjerne til et nytt
-alternativ i `<select id="product">` i kontaktskjemaet.
-
-## Design
-
-- Palett: hvitt, mørk blå (`#1e3a5f` / `#16243d`) og gråtoner
-- Runde knapper, tydelige overskrifter, ikoner ved hver produktkategori
-- Responsivt/mobilvennlig, med hensyn til `prefers-reduced-motion`
-- SEO: meta-tagger, Open Graph, strukturert data (LocalBusiness), sitemap og robots.txt
+- Palett: ink `#141619`, bone `#f4f1ea`, slate `#33506b`, oker `#c69a5f`
+- Typografi: Fraunces (display-serif) + Space Grotesk (UI/brødtekst) + JetBrains Mono (etiketter)
+- Animasjoner: scroll-reveal, tellere, kinetisk hero, marquee, hover-bilder — alt
+  respekterer `prefers-reduced-motion`
+- 100 % responsivt (mobil → desktop)
+- SEO: meta, Open Graph, `LocalBusiness`/`GeneralContractor` strukturert data,
+  sitemap og robots.txt
