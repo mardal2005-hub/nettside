@@ -51,9 +51,10 @@ Prosjektbildene er hentet og beskåret fra bedriftens Facebook/Google-profil.
 
 Søk i koden etter disse:
 
-- **Domene** — `index.html` (meta/canonical/OG), `robots.txt`, `sitemap.xml` og
-  `CNAME` bruker `haugalandbyggpartner.no` som antatt domene. Bytt til det domenet
-  dere faktisk eier, eller **slett `CNAME`** for å bruke standard `*.github.io`-adresse.
+- **Adresse** — siden er satt opp for GitHub Pages på
+  `https://mardal2005-hub.github.io/Haugaland-Byggpartner-AS/`. Får dere et eget
+  domene senere, legg til en `CNAME`-fil med domenet og oppdater URL-ene i
+  `index.html` (canonical/OG), `robots.txt` og `sitemap.xml`.
 - **Org.nr.** — vises som `Org.nr. XXX XXX XXX` i footer og personvern. Bytt til
   riktig organisasjonsnummer.
 - **Kontaktskjema** — se under.

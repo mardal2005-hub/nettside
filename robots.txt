@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://haugalandbyggpartner.no/sitemap.xml
+Sitemap: https://mardal2005-hub.github.io/Haugaland-Byggpartner-AS/sitemap.xml
