@@ -1,0 +1,27 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="s2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c3c5e"/><stop offset="1" stop-color="#0f2438"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#s2)"/>
+  <!-- building behind -->
+  <rect x="640" y="140" width="500" height="480" fill="#0d2033" opacity="0.8"/>
+  <g fill="#173250" opacity="0.7"><rect x="680" y="180" width="60" height="80"/><rect x="770" y="180" width="60" height="80"/><rect x="860" y="180" width="60" height="80"/><rect x="950" y="180" width="60" height="80"/><rect x="680" y="300" width="60" height="80"/><rect x="770" y="300" width="60" height="80"/><rect x="860" y="300" width="60" height="80"/><rect x="950" y="300" width="60" height="80"/></g>
+  <rect y="620" width="1200" height="280" fill="#0b1a29"/>
+  <!-- truck body -->
+  <g fill="#0a1725">
+    <rect x="120" y="470" width="470" height="150" rx="8"/>
+    <rect x="120" y="410" width="150" height="120" rx="8"/>
+    <circle cx="220" cy="630" r="46"/><circle cx="500" cy="630" r="46"/>
+  </g>
+  <!-- red HIAB crane arm -->
+  <g stroke="#c0392b" stroke-width="26" stroke-linecap="round" fill="none">
+    <line x1="360" y1="470" x2="360" y2="300"/>
+    <line x1="360" y1="300" x2="720" y2="360"/>
+  </g>
+  <g stroke="#e05545" stroke-width="6" stroke-linecap="round"><line x1="360" y1="470" x2="360" y2="300"/><line x1="360" y1="300" x2="720" y2="360"/></g>
+  <!-- hook + load -->
+  <line x1="710" y1="360" x2="710" y2="500" stroke="#dfe6ec" stroke-width="4"/>
+  <rect x="660" y="500" width="110" height="70" rx="4" fill="#20456a"/>
+</svg>

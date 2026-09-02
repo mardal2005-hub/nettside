@@ -1,5 +1,5 @@
 /* ============================================================
-   Mardal Utleie – main.js
+   BJ Kran og Transport AS – main.js
    ============================================================ */
 (function () {
   'use strict';
@@ -13,42 +13,25 @@
       var open = nav.classList.toggle('open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       toggle.setAttribute('aria-label', open ? 'Lukk meny' : 'Åpne meny');
+      document.body.style.overflow = open ? 'hidden' : '';
     });
 
-    // Close menu when a link is clicked (mobile)
     nav.addEventListener('click', function (e) {
       if (e.target.closest('a') && nav.classList.contains('open')) {
         nav.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
         toggle.setAttribute('aria-label', 'Åpne meny');
+        document.body.style.overflow = '';
       }
     });
   }
 
-  /* ---------- Current year in footer ---------- */
+  /* ---------- Year in footer ---------- */
   var yearEl = document.getElementById('year');
   if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
 
-  /* ---------- Scroll reveal (subtle fade-in) ---------- */
-  var revealSelectors = '.section-head, .product-card, .package-card, .why-card, .step-card, .stat-tile, .testimonial-card, .area-chip, .gallery-item, .about-text, .about-stats, .contact-info, .contact-form-wrap, .contact-map, .cta-inner, .faq-item';
-  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var revealEls = document.querySelectorAll(revealSelectors);
-
-  if (revealEls.length && 'IntersectionObserver' in window && !prefersReduced) {
-    revealEls.forEach(function (el) { el.classList.add('reveal'); });
-    var io = new IntersectionObserver(function (entries, obs) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    revealEls.forEach(function (el) { io.observe(el); });
-  }
-
-  /* ---------- Header: compact/blur state on scroll ---------- */
-  var header = document.querySelector('.site-header');
+  /* ---------- Header state on scroll ---------- */
+  var header = document.getElementById('siteHeader');
   if (header) {
     var onScroll = function () {
       if (window.scrollY > 12) { header.classList.add('scrolled'); }
@@ -58,130 +41,118 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* ---------- Scroll-spy: highlight active nav link ---------- */
+  /* ---------- Scroll reveal ---------- */
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll(
+    '.section-head, .service-card, .spec-row, .crane-chip, .equip__media, .feature__box, ' +
+    '.about__media, .about__text, .gallery__item, .info-card, .contact__form, .contact__cta'
+  );
+  if (revealEls.length && 'IntersectionObserver' in window && !prefersReduced) {
+    revealEls.forEach(function (el) { el.classList.add('reveal'); });
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- Scroll-spy ---------- */
   var navLinks = Array.prototype.slice.call(
     document.querySelectorAll('.main-nav a[href^="#"]')
   );
   if (navLinks.length && 'IntersectionObserver' in window) {
     var linkById = {};
-    var spySections = [];
     navLinks.forEach(function (link) {
       var id = link.getAttribute('href').slice(1);
       var section = id && document.getElementById(id);
-      if (section) { linkById[id] = link; spySections.push(section); }
+      if (section) { linkById[id] = link; }
     });
-
-    var setActive = function (id) {
-      navLinks.forEach(function (l) { l.classList.remove('active'); });
-      if (linkById[id]) { linkById[id].classList.add('active'); }
-    };
-
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) { setActive(entry.target.id); }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-    spySections.forEach(function (s) { spy.observe(s); });
-  }
-
-  /* ---------- Hide floating call button near contact/footer ---------- */
-  var fab = document.querySelector('.call-fab');
-  if (fab && 'IntersectionObserver' in window) {
-    var zones = [
-      document.getElementById('kontakt'),
-      document.querySelector('.cta'),
-      document.querySelector('.site-footer')
-    ].filter(Boolean);
-    var zoneVisible = zones.map(function () { return false; });
-    var fabObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var idx = zones.indexOf(entry.target);
-        if (idx > -1) { zoneVisible[idx] = entry.isIntersecting; }
-      });
-      var anyVisible = zoneVisible.some(function (v) { return v; });
-      fab.classList.toggle('is-hidden', anyVisible);
-    }, { threshold: 0 });
-    zones.forEach(function (z) { fabObs.observe(z); });
-  }
-
-  /* ---------- Hero scroll parallax (image + text depth) ---------- */
-  var hero = document.querySelector('.hero');
-  var heroMedia = document.querySelector('.hero-media');
-  var heroContent = document.querySelector('.hero-content');
-
-  if (hero && heroMedia && !prefersReduced) {
-    var heroH = hero.offsetHeight || 1;
-    var getConf = function () {
-      // Weaker, cheaper effect on smaller screens
-      return window.matchMedia('(max-width: 768px)').matches
-        ? { mediaShift: 0.06, scaleFrom: 1.04, scaleAdd: 0.05, textShift: 0.03, fade: 0.9 }
-        : { mediaShift: 0.12, scaleFrom: 1.05, scaleAdd: 0.07, textShift: 0.06, fade: 0.7 };
-    };
-    var conf = getConf();
-    var ticking = false;
-
-    var render = function () {
-      ticking = false;
-      var rect = hero.getBoundingClientRect();
-      if (rect.bottom <= 0) { return; }               // hero fully scrolled away
-      var p = Math.min(Math.max(-rect.top / heroH, 0), 1);
-
-      // Background: drifts down slightly + subtle zoom => appears to move up slowly
-      var mediaY = (p * heroH * conf.mediaShift).toFixed(1);
-      var scale = (conf.scaleFrom + p * conf.scaleAdd).toFixed(3);
-      heroMedia.style.transform = 'translate3d(0,' + mediaY + 'px,0) scale(' + scale + ')';
-
-      // Foreground text: moves a touch faster + fades => depth + glides into next section
-      if (heroContent) {
-        var textY = (-p * heroH * conf.textShift).toFixed(1);
-        var op = Math.max(0, 1 - p / conf.fade).toFixed(2);
-        heroContent.style.transform = 'translate3d(0,' + textY + 'px,0)';
-        heroContent.style.opacity = op;
-      }
-    };
-
-    var onScrollHero = function () {
-      if (!ticking) { ticking = true; window.requestAnimationFrame(render); }
-    };
-
-    window.addEventListener('scroll', onScrollHero, { passive: true });
-    window.addEventListener('resize', function () {
-      heroH = hero.offsetHeight || 1;
-      conf = getConf();
-      render();
-    }, { passive: true });
-    render();
-  }
-
-  /* ---------- Prefill product in contact form ---------- */
-  var productSelect = document.getElementById('product');
-  var messageField = document.getElementById('message');
-
-  document.querySelectorAll('[data-product]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var product = btn.getAttribute('data-product');
-      if (productSelect) {
-        for (var i = 0; i < productSelect.options.length; i++) {
-          if (productSelect.options[i].value === product) {
-            productSelect.selectedIndex = i;
-            break;
-          }
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove('active'); });
+          var active = linkById[entry.target.id];
+          if (active) { active.classList.add('active'); }
         }
-      }
-      if (messageField && !messageField.value.trim()) {
-        messageField.value = 'Hei! Jeg ønsker et tilbud på ' + product + '. ';
-      }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(linkById).forEach(function (id) {
+      var s = document.getElementById(id);
+      if (s) { spy.observe(s); }
     });
-  });
+  }
 
-  /* ---------- Contact form handling ---------- */
+  /* ---------- Gallery lightbox ---------- */
+  var items = Array.prototype.slice.call(document.querySelectorAll('.gallery__item'));
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lbImg');
+  var lbClose = document.getElementById('lbClose');
+  var lbPrev = document.getElementById('lbPrev');
+  var lbNext = document.getElementById('lbNext');
+  var lbCount = document.getElementById('lbCount');
+  var current = 0;
+
+  function srcFor(item) {
+    var img = item.querySelector('img');
+    // Use the loaded image src (already falls back to SVG if the JPG is missing)
+    return img ? img.currentSrc || img.src : item.getAttribute('data-full');
+  }
+  function altFor(item) {
+    var img = item.querySelector('img');
+    return img ? img.getAttribute('alt') : '';
+  }
+  function show(i) {
+    if (!items.length) { return; }
+    current = (i + items.length) % items.length;
+    lbImg.src = srcFor(items[current]);
+    lbImg.alt = altFor(items[current]);
+    lbCount.textContent = (current + 1) + ' / ' + items.length;
+  }
+  function open(i) {
+    show(i);
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (lb && items.length) {
+    items.forEach(function (item, i) {
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('role', 'button');
+      item.addEventListener('click', function () { open(i); });
+      item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); }
+      });
+    });
+    lbClose.addEventListener('click', close);
+    lbPrev.addEventListener('click', function () { show(current - 1); });
+    lbNext.addEventListener('click', function () { show(current + 1); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) { close(); } });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('open')) { return; }
+      if (e.key === 'Escape') { close(); }
+      else if (e.key === 'ArrowLeft') { show(current - 1); }
+      else if (e.key === 'ArrowRight') { show(current + 1); }
+    });
+  }
+
+  /* ---------- Contact form ---------- */
   var form = document.getElementById('contactForm');
   var status = document.getElementById('formStatus');
 
   function setStatus(msg, type) {
-    if (!status) return;
+    if (!status) { return; }
     status.textContent = msg;
-    status.className = 'form-status' + (type ? ' ' + type : '');
+    status.className = 'form-status ' + type;
   }
 
   if (form) {
@@ -194,34 +165,37 @@
       }
 
       var action = form.getAttribute('action') || '';
-      var usingPlaceholder = action.indexOf('your-form-id') !== -1 || action === '';
+      var usesFormspree = action.indexOf('formspree.io') !== -1 && action.indexOf('your-form-id') === -1;
 
-      // Fallback: open the user's e-mail client with a prefilled message.
-      if (usingPlaceholder) {
-        var data = new FormData(form);
-        var lines = [
-          'Navn: ' + (data.get('navn') || ''),
-          'E-post: ' + (data.get('epost') || ''),
-          'Telefon: ' + (data.get('telefon') || ''),
-          'Produkt: ' + (data.get('produkt') || ''),
-          'Dato: ' + (data.get('dato') || ''),
-          '',
-          'Melding:',
-          (data.get('melding') || '')
-        ];
-        var subject = 'Forespørsel om utleie' + (data.get('produkt') ? ' – ' + data.get('produkt') : '');
-        var mailto = 'mailto:kontakt@mardalutleie.no'
-          + '?subject=' + encodeURIComponent(subject)
-          + '&body=' + encodeURIComponent(lines.join('\n'));
+      // Fallback: no live form service configured -> open e-mail client
+      if (!usesFormspree) {
+        var d = {
+          navn: (form.navn.value || '').trim(),
+          firma: (form.firma.value || '').trim(),
+          telefon: (form.telefon.value || '').trim(),
+          epost: (form.epost.value || '').trim(),
+          oppdrag: form.oppdrag.value || '',
+          melding: (form.melding.value || '').trim()
+        };
+        var body =
+          'Navn: ' + d.navn + '\n' +
+          'Firma: ' + d.firma + '\n' +
+          'Telefon: ' + d.telefon + '\n' +
+          'E-post: ' + d.epost + '\n' +
+          'Oppdrag: ' + d.oppdrag + '\n\n' +
+          'Melding:\n' + d.melding + '\n';
+        var mailto = 'mailto:post@bjkran.no' +
+          '?subject=' + encodeURIComponent('Forespørsel: ' + d.oppdrag + ' – ' + d.navn) +
+          '&body=' + encodeURIComponent(body);
         window.location.href = mailto;
-        setStatus('Åpner e-postprogrammet ditt … Får du ikke opp noe, send oss en e-post direkte til kontakt@mardalutleie.no.', 'success');
+        setStatus('Takk! E-postprogrammet ditt åpnes med forespørselen – trykk send for å sende den til oss.', 'ok');
         return;
       }
 
-      // Real submission (e.g. Formspree) via fetch.
-      var submitBtn = form.querySelector('button[type="submit"]');
-      if (submitBtn) { submitBtn.disabled = true; }
-      setStatus('Sender …', '');
+      // Live submit via Formspree
+      var btn = form.querySelector('button[type="submit"]');
+      var orig = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Sender …'; }
 
       fetch(action, {
         method: 'POST',
@@ -230,14 +204,14 @@
       }).then(function (res) {
         if (res.ok) {
           form.reset();
-          setStatus('Takk! Forespørselen din er sendt. Vi tar kontakt så snart som mulig.', 'success');
+          setStatus('Takk for henvendelsen! Vi tar kontakt med deg så snart som mulig.', 'ok');
         } else {
-          setStatus('Beklager, noe gikk galt. Prøv igjen eller send en e-post til kontakt@mardalutleie.no.', 'error');
+          setStatus('Noe gikk galt. Ring oss gjerne på 982 04 372, så hjelper vi deg.', 'err');
         }
       }).catch(function () {
-        setStatus('Beklager, noe gikk galt. Prøv igjen eller send en e-post til kontakt@mardalutleie.no.', 'error');
+        setStatus('Noe gikk galt. Ring oss gjerne på 982 04 372, så hjelper vi deg.', 'err');
       }).finally(function () {
-        if (submitBtn) { submitBtn.disabled = false; }
+        if (btn) { btn.disabled = false; btn.textContent = orig; }
       });
     });
   }

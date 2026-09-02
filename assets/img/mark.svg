@@ -1,0 +1,15 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BJ Kran og Transport">
+  <rect width="64" height="64" rx="10" fill="#12283f"/>
+  <rect x="1" y="1" width="62" height="62" rx="9" fill="none" stroke="#2f88cf" stroke-width="1.5" opacity="0.6"/>
+  <!-- crane mast -->
+  <rect x="14" y="14" width="5" height="34" rx="1" fill="#e9eef3"/>
+  <!-- crane jib -->
+  <path d="M16 16 L50 16 L50 20 L20 20 Z" fill="#2f88cf"/>
+  <!-- counter jib -->
+  <path d="M16 22 L9 22 L9 18 L16 18 Z" fill="#2f88cf"/>
+  <!-- hook line -->
+  <line x1="44" y1="20" x2="44" y2="34" stroke="#e9eef3" stroke-width="1.6"/>
+  <path d="M42 34 q2 5 4 0" fill="none" stroke="#e9eef3" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- base -->
+  <path d="M8 50 L26 50 L23 55 L11 55 Z" fill="#e9eef3"/>
+</svg>

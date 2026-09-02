@@ -1,87 +1,89 @@
-# Mardal Utleie – nettside
+# BJ Kran og Transport AS – nettside
 
-Moderne, stilren og mobilvennlig nettside for **Mardal Utleie** – utleie av bord,
-klappstoler, partytelt og høyttalere.
+Moderne, mobilvennlig nettside for **BJ Kran og Transport AS** i Haugesund –
+kranbil, kranoppdrag, transport og krokbil.
 
-Nettsiden er bygget som en statisk side (HTML, CSS og litt JavaScript) uten
-rammeverk eller byggeprosess. Det gir rask lastetid og gjør den enkel å hoste hvor
-som helst.
+Bygget som en statisk side (HTML, CSS og litt JavaScript) uten rammeverk eller
+byggeprosess. Rask lastetid og enkel å hoste hvor som helst (GitHub Pages,
+Netlify, Vercel osv. – alle gir gratis HTTPS).
 
 ## Struktur
 
 ```
 .
-├── index.html            # Hele forsiden (hero, produkter, om oss, galleri, FAQ, kontakt)
-├── css/styles.css        # All styling (palett: hvitt, mørk blå, gråtoner)
-├── js/main.js            # Meny, skjemahåndtering og småfunksjoner
-├── assets/img/           # Logo, hero-bilde, produkt- og galleribilder (SVG)
-├── robots.txt            # SEO
-├── sitemap.xml           # SEO
-└── .nojekyll             # Sikrer at alle filer serveres på GitHub Pages
+├── index.html            # Hele forsiden (hero, tjenester, utstyr, om oss, galleri, kontakt)
+├── personvern.html       # Personvernerklæring
+├── css/styles.css        # All styling (marineblå, hvitt, gråtoner, blå detaljer)
+├── js/main.js            # Meny, galleri/lightbox, skjema, scroll-effekter
+├── assets/img/           # Logo-merke, favicon og bilde-plassholdere (SVG)
+├── robots.txt · sitemap.xml
+├── CNAME                 # bjkran.no
+└── .nojekyll
 ```
 
-## Kjøre lokalt
+## ⭐ Legge inn de ekte bildene (viktig)
 
-Åpne `index.html` direkte i nettleseren, eller start en enkel lokal server:
+Nettsiden er satt opp med **navngitte bilde-plasser**. Frem til de ekte bildene
+er lagt inn, vises stilrene industri-illustrasjoner (SVG) automatisk, så siden
+ser aldri tom eller ødelagt ut. **Så snart du legger en JPG med riktig filnavn i
+`assets/img/`, vises den automatisk** – du trenger ikke endre noe i koden.
+
+Last opp bildene fra Facebook slik (behold nøyaktig filnavn, kun selve fotografiet
+– beskjær bort de svarte kantene først):
+
+| Filnavn (`assets/img/…`) | Hvor det vises | Anbefalt bilde |
+|--------------------------|----------------|----------------|
+| `hero-trucks.jpg` | **Hero** (toppen) | De tre kranbilene – det beste bildet. Liggende, ca. 1920×1080 px |
+| `crane-hiab.jpg` | Stor bildeseksjon «Når lasten skal på plass» | Kranbil med rød HIAB-kran foran bygget |
+| `crane-white.jpg` | Utstyr-seksjonen | Den hvite kranbilen |
+| `fleet.jpg` | Om oss | Flere lastebiler / dronebilde av området |
+| `gallery-1.jpg` | Galleri (stort felt) | Beste kranarbeid-bilde |
+| `gallery-2.jpg` … `gallery-6.jpg` | Galleri | Kranbiler, kranarbeid, transport, utstyr, område, det mørke BJ Kran-bildet |
+| `og-image.jpg` | Delingsbilde (Facebook/Google, 1200×630 px) | Valgfritt – et representativt bilde |
+
+Tips: liggende bilder fungerer best i hero og bredfelt; galleriet håndterer både
+stående og liggende. Bildene beskjæres pent automatisk (`object-fit: cover`).
+
+### Bytte ut logoen
+
+Firmaets egen logo kan legges inn ved å erstatte `assets/img/mark.svg`
+(kvadratisk merke ved siden av navnet i header og footer). Behold filnavnet.
+
+## Kontaktskjema
+
+Skjemaet fungerer ut av boksen: er ingen skjematjeneste satt opp, åpnes kundens
+e-postprogram med en ferdig utfylt melding til `post@bjkran.no`.
+
+For å motta forespørsler automatisk (uten at kunden trenger e-postprogram), koble
+til en gratis tjeneste som [Formspree](https://formspree.io):
+
+1. Opprett et skjema hos Formspree og kopier skjema-URL-en.
+2. I `index.html`, bytt ut `action="https://formspree.io/f/your-form-id"` med din
+   egen URL. JavaScript sender da skjemaet i bakgrunnen og viser en takkemelding.
+
+## Facebook-lenke
+
+Footeren lenker til firmaets Facebook-side. Sjekk at URL-en i `index.html`
+(`class="social-link"`) peker til riktig side.
+
+## Kjøre lokalt
 
 ```bash
 python3 -m http.server 8000
 # åpne http://localhost:8000
 ```
 
-## Publisere (med HTTPS/SSL)
+## Firmainformasjon (på siden)
 
-Siden er statisk og kan publiseres gratis med automatisk HTTPS:
-
-- **GitHub Pages** – Slå på Pages for repoet (Settings → Pages). `.nojekyll` er allerede med.
-- **Netlify / Vercel / Cloudflare Pages** – Dra og slipp mappen, eller koble til repoet.
-
-Alle disse gir gratis SSL-sertifikat (HTTPS) automatisk.
-
-## Ting som skal fylles inn senere
-
-Søk gjerne i koden etter disse for å finne dem raskt:
-
-| Hva | Hvor | Merket med |
-|-----|------|-----------|
-| **Facebook / Instagram** | `index.html` (kontakt + footer) | `class="social-link"` med `href="#"` |
-| **Domene** | `index.html` (meta), `robots.txt`, `sitemap.xml` | `www.mardalutleie.no` |
-
-Telefonnummer (+47 413 92 413), område (Haugalandet) og priser er nå lagt inn.
-
-### Hero-bilde (bakgrunn øverst på siden)
-
-Legg bakgrunnsbildet i `assets/img/hero-photo.jpg`, så vises det automatisk øverst
-på forsiden. Filen må hete nøyaktig `hero-photo.jpg`. Frem til den er på plass, brukes
-en innebygd SVG-illustrasjon som reserve – siden ser altså aldri «tom» ut.
-
-- Anbefalt størrelse: liggende, ca. 1920×1080 px (eller større)
-- Et mørkt sjikt legges automatisk over bildet så teksten holder seg lesbar
-- Vil du bytte bilde senere, er det bare å erstatte den samme filen
-
-### Kontaktskjema
-
-Skjemaet fungerer ut av boksen: hvis ingen skjematjeneste er satt opp, åpner det
-kundens e-postprogram med en ferdig utfylt melding til `kontakt@mardalutleie.no`.
-
-For å motta forespørsler automatisk uten at kunden må ha e-postprogram, koble til en
-gratis tjeneste som [Formspree](https://formspree.io):
-
-1. Opprett et skjema hos Formspree og kopier skjema-ID-en.
-2. I `index.html`, bytt ut `action="https://formspree.io/f/your-form-id"` med din egen
-   URL.
-
-JavaScript sender da skjemaet i bakgrunnen og viser en takkemelding.
-
-## Legge til flere produkter
-
-Kopiér et `<article class="product-card">`-element i produktseksjonen i `index.html`,
-bytt ut bilde, tittel, beskrivelse og `data-product`-verdien. Legg gjerne til et nytt
-alternativ i `<select id="product">` i kontaktskjemaet.
+- Etablert 14.02.2011 · Org.nr. 996 631 001
+- Bokngata 11, 5537 Haugesund
+- Telefon 982 04 372 · post@bjkran.no
+- Åpningstid man–fre 07:00–16:00
+- 3 kranbiler (50 / 60 / 85 TM), krokbil, rekkevidde opptil 33,5 m
 
 ## Design
 
-- Palett: hvitt, mørk blå (`#1e3a5f` / `#16243d`) og gråtoner
-- Runde knapper, tydelige overskrifter, ikoner ved hver produktkategori
-- Responsivt/mobilvennlig, med hensyn til `prefers-reduced-motion`
+- Palett: marineblå (`#0f2438` / `#12283f`), hvitt, gråtoner, blå detalj (`#2f88cf`)
+- Typografi: Oswald (overskrifter) + Inter (brødtekst)
+- Responsivt/mobilvennlig, hamburger-meny, klikkbart telefonnummer, bilde-lightbox
 - SEO: meta-tagger, Open Graph, strukturert data (LocalBusiness), sitemap og robots.txt
