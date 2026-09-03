@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.mardalutleie.no/sitemap.xml
+Sitemap: https://mardaldigital.no/sitemap.xml

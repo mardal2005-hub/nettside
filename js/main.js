@@ -1,244 +1,201 @@
 /* ============================================================
-   Mardal Utleie – main.js
+   MARDAL DIGITAL — main.js
+   Kontrollerte interaksjoner: custom cursor, reveal, parallax,
+   preloader, meny, live klokke. Alt respekterer reduced-motion.
    ============================================================ */
 (function () {
   'use strict';
 
-  /* ---------- Mobile nav ---------- */
-  var toggle = document.getElementById('navToggle');
-  var nav = document.getElementById('mainNav');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(pointer: fine)').matches;
 
-  if (toggle && nav) {
-    toggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.setAttribute('aria-label', open ? 'Lukk meny' : 'Åpne meny');
-    });
-
-    // Close menu when a link is clicked (mobile)
-    nav.addEventListener('click', function (e) {
-      if (e.target.closest('a') && nav.classList.contains('open')) {
-        nav.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Åpne meny');
-      }
-    });
-  }
-
-  /* ---------- Current year in footer ---------- */
+  /* ---------- Year + live klokke (Europe/Oslo) ---------- */
   var yearEl = document.getElementById('year');
-  if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- Scroll reveal (subtle fade-in) ---------- */
-  var revealSelectors = '.section-head, .product-card, .package-card, .why-card, .step-card, .stat-tile, .testimonial-card, .area-chip, .gallery-item, .about-text, .about-stats, .contact-info, .contact-form-wrap, .contact-map, .cta-inner, .faq-item';
-  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var revealEls = document.querySelectorAll(revealSelectors);
-
-  if (revealEls.length && 'IntersectionObserver' in window && !prefersReduced) {
-    revealEls.forEach(function (el) { el.classList.add('reveal'); });
-    var io = new IntersectionObserver(function (entries, obs) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          obs.unobserve(entry.target);
-        }
+  var clockEl = document.getElementById('clock');
+  if (clockEl) {
+    var fmt;
+    try {
+      fmt = new Intl.DateTimeFormat('no-NO', {
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: false, timeZone: 'Europe/Oslo'
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    revealEls.forEach(function (el) { io.observe(el); });
+    } catch (e) { fmt = null; }
+    var tick = function () {
+      var t = fmt ? fmt.format(new Date()) : '';
+      clockEl.innerHTML = 'Oslo — <b>' + t + '</b>';
+    };
+    tick();
+    setInterval(tick, 1000);
   }
 
-  /* ---------- Header: compact/blur state on scroll ---------- */
-  var header = document.querySelector('.site-header');
+  /* ---------- Preloader ---------- */
+  var loader = document.getElementById('loader');
+  var hero = document.getElementById('hero');
+  var countEl = document.getElementById('loaderCount');
+
+  function startHero() {
+    if (hero) hero.classList.add('ready');
+  }
+
+  if (loader && !reduce) {
+    var n = 0;
+    var counter = setInterval(function () {
+      n = Math.min(100, n + Math.floor(Math.random() * 18) + 6);
+      if (countEl) countEl.textContent = n < 10 ? '0' + n : '' + n;
+      if (n >= 100) clearInterval(counter);
+    }, 130);
+
+    window.addEventListener('load', done);
+    setTimeout(done, 1700); // fallback
+
+    function done() {
+      window.removeEventListener('load', done);
+      if (loader.classList.contains('done')) return;
+      if (countEl) countEl.textContent = '100';
+      setTimeout(function () {
+        loader.classList.add('done');
+        startHero();
+        setTimeout(function () { loader.style.display = 'none'; }, 950);
+      }, 250);
+    }
+  } else {
+    if (loader) loader.style.display = 'none';
+    startHero();
+  }
+
+  /* ---------- Mobil meny ---------- */
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  if (menuBtn && mobileNav) {
+    var setMenu = function (open) {
+      mobileNav.classList.toggle('open', open);
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuBtn.setAttribute('aria-label', open ? 'Lukk meny' : 'Åpne meny');
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    menuBtn.addEventListener('click', function () {
+      setMenu(menuBtn.getAttribute('aria-expanded') !== 'true');
+    });
+    mobileNav.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setMenu(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setMenu(false);
+    });
+  }
+
+  /* ---------- Header skjul/vis ved scroll ---------- */
+  var header = document.getElementById('header');
+  var lastY = window.pageYOffset;
   if (header) {
-    var onScroll = function () {
-      if (window.scrollY > 12) { header.classList.add('scrolled'); }
-      else { header.classList.remove('scrolled'); }
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
-
-  /* ---------- Scroll-spy: highlight active nav link ---------- */
-  var navLinks = Array.prototype.slice.call(
-    document.querySelectorAll('.main-nav a[href^="#"]')
-  );
-  if (navLinks.length && 'IntersectionObserver' in window) {
-    var linkById = {};
-    var spySections = [];
-    navLinks.forEach(function (link) {
-      var id = link.getAttribute('href').slice(1);
-      var section = id && document.getElementById(id);
-      if (section) { linkById[id] = link; spySections.push(section); }
-    });
-
-    var setActive = function (id) {
-      navLinks.forEach(function (l) { l.classList.remove('active'); });
-      if (linkById[id]) { linkById[id].classList.add('active'); }
-    };
-
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) { setActive(entry.target.id); }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-    spySections.forEach(function (s) { spy.observe(s); });
-  }
-
-  /* ---------- Hide floating call button near contact/footer ---------- */
-  var fab = document.querySelector('.call-fab');
-  if (fab && 'IntersectionObserver' in window) {
-    var zones = [
-      document.getElementById('kontakt'),
-      document.querySelector('.cta'),
-      document.querySelector('.site-footer')
-    ].filter(Boolean);
-    var zoneVisible = zones.map(function () { return false; });
-    var fabObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var idx = zones.indexOf(entry.target);
-        if (idx > -1) { zoneVisible[idx] = entry.isIntersecting; }
-      });
-      var anyVisible = zoneVisible.some(function (v) { return v; });
-      fab.classList.toggle('is-hidden', anyVisible);
-    }, { threshold: 0 });
-    zones.forEach(function (z) { fabObs.observe(z); });
-  }
-
-  /* ---------- Hero scroll parallax (image + text depth) ---------- */
-  var hero = document.querySelector('.hero');
-  var heroMedia = document.querySelector('.hero-media');
-  var heroContent = document.querySelector('.hero-content');
-
-  if (hero && heroMedia && !prefersReduced) {
-    var heroH = hero.offsetHeight || 1;
-    var getConf = function () {
-      // Weaker, cheaper effect on smaller screens
-      return window.matchMedia('(max-width: 768px)').matches
-        ? { mediaShift: 0.06, scaleFrom: 1.04, scaleAdd: 0.05, textShift: 0.03, fade: 0.9 }
-        : { mediaShift: 0.12, scaleFrom: 1.05, scaleAdd: 0.07, textShift: 0.06, fade: 0.7 };
-    };
-    var conf = getConf();
-    var ticking = false;
-
-    var render = function () {
-      ticking = false;
-      var rect = hero.getBoundingClientRect();
-      if (rect.bottom <= 0) { return; }               // hero fully scrolled away
-      var p = Math.min(Math.max(-rect.top / heroH, 0), 1);
-
-      // Background: drifts down slightly + subtle zoom => appears to move up slowly
-      var mediaY = (p * heroH * conf.mediaShift).toFixed(1);
-      var scale = (conf.scaleFrom + p * conf.scaleAdd).toFixed(3);
-      heroMedia.style.transform = 'translate3d(0,' + mediaY + 'px,0) scale(' + scale + ')';
-
-      // Foreground text: moves a touch faster + fades => depth + glides into next section
-      if (heroContent) {
-        var textY = (-p * heroH * conf.textShift).toFixed(1);
-        var op = Math.max(0, 1 - p / conf.fade).toFixed(2);
-        heroContent.style.transform = 'translate3d(0,' + textY + 'px,0)';
-        heroContent.style.opacity = op;
-      }
-    };
-
-    var onScrollHero = function () {
-      if (!ticking) { ticking = true; window.requestAnimationFrame(render); }
-    };
-
-    window.addEventListener('scroll', onScrollHero, { passive: true });
-    window.addEventListener('resize', function () {
-      heroH = hero.offsetHeight || 1;
-      conf = getConf();
-      render();
+    window.addEventListener('scroll', function () {
+      var y = window.pageYOffset;
+      if (y > lastY && y > 300) header.classList.add('hidden');
+      else header.classList.remove('hidden');
+      lastY = y;
     }, { passive: true });
-    render();
   }
 
-  /* ---------- Prefill product in contact form ---------- */
-  var productSelect = document.getElementById('product');
-  var messageField = document.getElementById('message');
-
-  document.querySelectorAll('[data-product]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var product = btn.getAttribute('data-product');
-      if (productSelect) {
-        for (var i = 0; i < productSelect.options.length; i++) {
-          if (productSelect.options[i].value === product) {
-            productSelect.selectedIndex = i;
-            break;
+  /* ---------- Reveal on scroll ---------- */
+  var revealEls = document.querySelectorAll('[data-reveal], [data-reveal-line]');
+  if (revealEls.length) {
+    if ('IntersectionObserver' in window && !reduce) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            en.target.classList.add('in');
+            io.unobserve(en.target);
           }
-        }
-      }
-      if (messageField && !messageField.value.trim()) {
-        messageField.value = 'Hei! Jeg ønsker et tilbud på ' + product + '. ';
-      }
-    });
-  });
-
-  /* ---------- Contact form handling ---------- */
-  var form = document.getElementById('contactForm');
-  var status = document.getElementById('formStatus');
-
-  function setStatus(msg, type) {
-    if (!status) return;
-    status.textContent = msg;
-    status.className = 'form-status' + (type ? ' ' + type : '');
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('in'); });
+    }
   }
 
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      var action = form.getAttribute('action') || '';
-      var usingPlaceholder = action.indexOf('your-form-id') !== -1 || action === '';
-
-      // Fallback: open the user's e-mail client with a prefilled message.
-      if (usingPlaceholder) {
-        var data = new FormData(form);
-        var lines = [
-          'Navn: ' + (data.get('navn') || ''),
-          'E-post: ' + (data.get('epost') || ''),
-          'Telefon: ' + (data.get('telefon') || ''),
-          'Produkt: ' + (data.get('produkt') || ''),
-          'Dato: ' + (data.get('dato') || ''),
-          '',
-          'Melding:',
-          (data.get('melding') || '')
-        ];
-        var subject = 'Forespørsel om utleie' + (data.get('produkt') ? ' – ' + data.get('produkt') : '');
-        var mailto = 'mailto:kontakt@mardalutleie.no'
-          + '?subject=' + encodeURIComponent(subject)
-          + '&body=' + encodeURIComponent(lines.join('\n'));
-        window.location.href = mailto;
-        setStatus('Åpner e-postprogrammet ditt … Får du ikke opp noe, send oss en e-post direkte til kontakt@mardalutleie.no.', 'success');
-        return;
-      }
-
-      // Real submission (e.g. Formspree) via fetch.
-      var submitBtn = form.querySelector('button[type="submit"]');
-      if (submitBtn) { submitBtn.disabled = true; }
-      setStatus('Sender …', '');
-
-      fetch(action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      }).then(function (res) {
-        if (res.ok) {
-          form.reset();
-          setStatus('Takk! Forespørselen din er sendt. Vi tar kontakt så snart som mulig.', 'success');
-        } else {
-          setStatus('Beklager, noe gikk galt. Prøv igjen eller send en e-post til kontakt@mardalutleie.no.', 'error');
-        }
-      }).catch(function () {
-        setStatus('Beklager, noe gikk galt. Prøv igjen eller send en e-post til kontakt@mardalutleie.no.', 'error');
-      }).finally(function () {
-        if (submitBtn) { submitBtn.disabled = false; }
+  /* ---------- Parallax (subtil, kun der det gir mening) ---------- */
+  var parallaxEls = document.querySelectorAll('[data-parallax]');
+  if (parallaxEls.length && !reduce) {
+    var ticking = false;
+    var run = function () {
+      var vh = window.innerHeight;
+      parallaxEls.forEach(function (el) {
+        var rect = el.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > vh) return;
+        var speed = parseFloat(el.getAttribute('data-parallax')) || 0;
+        var progress = (rect.top + rect.height / 2 - vh / 2) / vh; // -0.5..0.5-ish
+        el.style.transform = 'translate3d(0,' + (progress * speed * 100).toFixed(2) + 'px,0)';
       });
-    });
+      ticking = false;
+    };
+    window.addEventListener('scroll', function () {
+      if (!ticking) { window.requestAnimationFrame(run); ticking = true; }
+    }, { passive: true });
+    run();
+  }
+
+  /* ---------- Custom cursor ---------- */
+  if (finePointer && !reduce) {
+    var dot = document.querySelector('.cursor-dot');
+    var ring = document.querySelector('.cursor-ring');
+    var label = ring ? ring.querySelector('.cursor-label') : null;
+    if (dot && ring) {
+      document.body.classList.add('cursor-ready');
+      var mx = window.innerWidth / 2, my = window.innerHeight / 2;
+      var rx = mx, ry = my;
+
+      window.addEventListener('mousemove', function (e) {
+        mx = e.clientX; my = e.clientY;
+        dot.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
+        document.body.classList.add('cursor-active');
+      });
+      document.addEventListener('mouseleave', function () {
+        document.body.classList.remove('cursor-active');
+      });
+
+      var loop = function () {
+        rx += (mx - rx) * 0.16;
+        ry += (my - ry) * 0.16;
+        ring.style.transform = 'translate(' + rx.toFixed(2) + 'px,' + ry.toFixed(2) + 'px) translate(-50%,-50%)';
+        requestAnimationFrame(loop);
+      };
+      requestAnimationFrame(loop);
+
+      // Hover targets
+      var hoverSel = 'a, button, [data-cursor], input, textarea, .cap, .detail, .step';
+      document.querySelectorAll(hoverSel).forEach(function (el) {
+        var mode = el.getAttribute('data-cursor'); // "media" | "hover" | null
+        el.addEventListener('mouseenter', function () {
+          if (mode === 'media') {
+            document.body.classList.add('cursor-media');
+            if (label) label.textContent = el.getAttribute('data-cursor-label') || 'Se';
+          } else {
+            document.body.classList.add('cursor-hover');
+          }
+        });
+        el.addEventListener('mouseleave', function () {
+          document.body.classList.remove('cursor-media', 'cursor-hover');
+        });
+      });
+    }
+  }
+
+  /* ---------- Magnetic email link (subtil) ---------- */
+  if (finePointer && !reduce) {
+    var mail = document.querySelector('.contact__mail');
+    if (mail) {
+      mail.addEventListener('mousemove', function (e) {
+        var r = mail.getBoundingClientRect();
+        var x = (e.clientX - (r.left + r.width / 2)) * 0.04;
+        var y = (e.clientY - (r.top + r.height / 2)) * 0.08;
+        mail.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
+      });
+      mail.addEventListener('mouseleave', function () {
+        mail.style.transform = '';
+      });
+    }
   }
 })();
