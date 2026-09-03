@@ -9,14 +9,21 @@ ingen byggeprosess. Rask, enkel å hoste, enkel å utvide.
 
 ## Design & identitet
 
-- **Palett:** near-black (`#0C0C0D`), varm off-white (`#EDEBE2`), signalaksent (`#FF4B12`).
-  Ingen navy — helt annet uttrykk enn kundesidene.
-- **Typografi:** `Syne` (display) + `Inter` (brødtekst) + `Space Mono` (tekniske labels/nummer).
-- **Struktur:** editorial og nummerert — `01 Intro → 02 Selected Work → 03 Capabilities
-  → 04 Approach → 05 About → 06 Contact`.
-- **Interaksjon:** custom cursor, preloader, reveal-on-scroll, subtil parallax, marquee,
-  live Oslo-klokke og magnetisk kontaktlenke — alt bak `prefers-reduced-motion`.
-- **MD-monogram:** brukes som logo, favicon, cursor-detalj og grafisk element.
+- **Palett:** kald near-black (`#0A0B0D`) med lagdelte gråtoner (`#141519`, `#1B1D22`,
+  `#24262C`) for dybde, varm off-white (`#F2F0EA`) og lys grå (`#A9ABB2`) tekst.
+  Én dempet kald-blå aksent (`#5B79E6`) brukt svært sparsomt — nummerering,
+  hårstreker, hover og enkelte detaljer. Ingen oransje/beige, ingen gradienter.
+- **Typografi som identitet:** `Space Grotesk` (display + små uppercase-labels) +
+  `Inter` (brødtekst). Ekstremt store overskrifter, tight tracking, nummerering.
+- **Hero:** `MARDAL` i solid off-white over `DIGITAL` som outline — kontrast via
+  tone, ikke farge — med metadata forankret asymmetrisk i hjørnene.
+- **Layout:** 12-kolonners editorial rutenett, asymmetri, vertikale hårstreker,
+  mye whitespace, overlappende mockups.
+- **Struktur:** `01 Intro → 02 Selected Work → 03 Tjenester → 04 Prosess →
+  05 Om → 06 Kontakt`.
+- **Interaksjon:** minimal custom cursor, kort preloader, reveal-on-scroll, subtil
+  parallax, live Oslo-klokke — alt bak `prefers-reduced-motion`.
+- **MD-monogram:** logo, favicon og grafisk element.
 
 ## Struktur
 
@@ -43,7 +50,7 @@ og nye legges til uten at siden ser tom ut i mellomtiden.
 
 - **Stor case:** dupliser `<article class="case">` i `#work` og bytt ut tittel, meta,
   bilder (`assets/img/…`) og tekst.
-- **Kommende:** radene i `.work__more` (`02`, `03`, …) er plassholdere som fylles inn
+- **Kommende:** radene i `.work-list` (`02`, `03`, …) er plassholdere som fylles inn
   etter hvert som nye kunder kommer til. Ingen falske prosjekter.
 
 ## Ting som skal fylles inn

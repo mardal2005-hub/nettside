@@ -11,21 +11,21 @@
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    .legal { max-width: 68ch; margin: 0 auto; }
+    .legal { max-width: 66ch; }
     .legal h1 {
-      font-family: var(--display); font-weight: 800;
-      font-size: clamp(2.4rem, 8vw, 5rem); letter-spacing: -0.03em;
+      font-family: var(--display); font-weight: 700;
+      font-size: clamp(2.6rem, 9vw, 5.5rem); letter-spacing: -0.035em;
       line-height: 0.9; margin-bottom: 2rem;
     }
     .legal h2 {
-      font-family: var(--display); font-weight: 700;
-      font-size: 1.4rem; letter-spacing: -0.01em;
-      margin: 2.5rem 0 0.75rem;
+      font-family: var(--display); font-weight: 500;
+      font-size: 1.3rem; letter-spacing: -0.01em;
+      margin: 2.6rem 0 0.75rem;
     }
-    .legal p, .legal li { color: var(--fg-dim); line-height: 1.7; margin-bottom: 0.6rem; }
+    .legal p, .legal li { color: var(--fg-2); line-height: 1.7; margin-bottom: 0.6rem; }
     .legal ul { padding-left: 1.2rem; }
     .legal a { color: var(--accent); }
     .back { display:inline-flex; align-items:center; gap:0.5rem; margin-bottom:3rem; }
@@ -33,14 +33,13 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Hopp til innhold</a>
-  <div class="cursor-ring" aria-hidden="true"><span class="cursor-label">Se</span></div>
-  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__label">Se</span></div>
 
   <main class="section" id="main" style="padding-top:clamp(6rem,14vh,10rem)">
     <div class="legal">
-      <a class="back mono" href="index.html">← Tilbake</a>
+      <a class="back label" href="index.html">← Tilbake</a>
       <h1>Personvern</h1>
-      <p class="mono" style="color:var(--fg-faint)">Sist oppdatert: 2026</p>
+      <p class="label label--dim">Sist oppdatert: 2026</p>
 
       <h2>Kort fortalt</h2>
       <p>Mardal Digital samler ikke inn mer informasjon enn nødvendig. Nettsiden bruker
