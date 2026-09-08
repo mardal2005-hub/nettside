@@ -34,9 +34,9 @@ python3 -m http.server 8000
 # åpne http://localhost:8000
 ```
 
-## Innhold hentet fra kundens materiale
+## Innhold og kilder
 
-Firmaopplysningene er hentet fra informasjonsbildet i Google Drive-mappen:
+Fra **informasjonsbildet** i Google Drive-mappen:
 
 | Felt | Verdi |
 |------|-------|
@@ -46,7 +46,21 @@ Firmaopplysningene er hentet fra informasjonsbildet i Google Drive-mappen:
 | Kontaktperson 2 | Jan Atle Riise · 470 36 008 · jar@haugesundtakterrasse.no |
 | Åpningstider | Mandag–fredag 07:00–15:00 |
 | Nettadresse | haugesundtakterrasse.no |
-| Sted | Haugesund |
+
+Fra **offentlige registre** (proff.no, 1881.no, gulesider.no, 180.no, Takringen):
+
+| Felt | Verdi |
+|------|-------|
+| Org.nr | 924 720 646 |
+| Selskapsform | Aksjeselskap, stiftet 18.02.2020 |
+| Adresse | Stølevegen 11, 5514 Haugesund |
+| Ansatte | 1–4 |
+| Spesialitet | Sarnafil og asfalt takbelegg (membran/taktekking) |
+| Tjenester | Taktekking, membran, blikkenslagerarbeid, terrasse |
+| Medlemskap | Takringen (bransjeforening for tak) |
+
+> Ikke verifisert: Illustrasjonsbildene er laget for demoen og er **ikke** firmaets egne
+> prosjekter. Bytt dem med ekte foto før lansering.
 
 ## Ting som bør fylles inn før lansering
 
