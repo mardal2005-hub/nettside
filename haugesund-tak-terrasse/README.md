@@ -1,7 +1,12 @@
 # Haugesund Tak & Terrasse AS – demo-nettside
 
 Moderne, mobilvennlig demo-nettside for **Haugesund Tak & Terrasse AS** – et lokalt
-firma med 25 års erfaring med tak og terrasser på Haugalandet.
+firma i Haugesund med 25 års erfaring med tak og terrasser.
+
+> **Om innholdet:** Kun kontaktinfo, åpningstider og «25 års erfaring» er hentet fra
+> kundens eget materiale. Alt annet (tjenestebeskrivelser, tekster og bilder) er
+> eksempel-/plassholderinnhold som må bekreftes og tilpasses av firmaet før lansering.
+> En egen infolinje øverst på siden sier tydelig fra om dette.
 
 Siden er bygget som en statisk side (HTML, CSS og litt JavaScript) uten rammeverk eller
 byggeprosess. Rask lastetid og enkel å hoste hvor som helst med gratis HTTPS.
@@ -41,16 +46,17 @@ Firmaopplysningene er hentet fra informasjonsbildet i Google Drive-mappen:
 | Kontaktperson 2 | Jan Atle Riise · 470 36 008 · jar@haugesundtakterrasse.no |
 | Åpningstider | Mandag–fredag 07:00–15:00 |
 | Nettadresse | haugesundtakterrasse.no |
-| Område | Haugesund og Haugalandet |
+| Sted | Haugesund |
 
 ## Ting som bør fylles inn før lansering
 
 | Hva | Hvor | Merket med |
 |-----|------|-----------|
-| **Ekte foto** | `assets/img/` (hero + prosjekter) | Illustrasjons-SVG-er i dag |
+| **Tjenestebeskrivelse** | Seksjonen «Det vi driver med» | Plassholdertekst |
+| **Ekte foto** | `assets/img/` (hero + eksempler) | Illustrasjons-SVG-er i dag |
 | **Kontaktskjema** | `index.html` (`action="…your-form-id"`) | Formspree-ID |
 | **Adresse/org.nr** | `index.html` (structured data + footer) | – |
-| **Ekte kundeomtaler** | «Hva kundene sier» | Eksempeltekster |
+| **Fjerne demo-linjen** | Infolinjen øverst i `index.html` (`.demo-bar`) | Fjernes ved lansering |
 
 ### Hero-bilde (bakgrunn øverst)
 
