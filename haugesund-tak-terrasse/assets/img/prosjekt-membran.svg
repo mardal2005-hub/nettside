@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Illustrasjon: legging av Sarnafil takmembran på flatt tak">
+  <defs>
+    <linearGradient id="m-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe0e8"/><stop offset="1" stop-color="#aecad4"/></linearGradient>
+    <linearGradient id="m-mem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d3d9dd"/><stop offset="1" stop-color="#b3bcc2"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#m-sky)"/>
+  <circle cx="660" cy="110" r="52" fill="#ffe6bf" opacity="0.8"/>
+
+  <!-- Flat roof membrane surface (perspective) -->
+  <path d="M40 560 L250 300 L800 340 L640 600 Z" fill="url(#m-mem)"/>
+  <!-- membrane seams -->
+  <g stroke="#98a2a9" stroke-width="4" opacity="0.8">
+    <path d="M150 425 L720 470" fill="none"/>
+    <path d="M100 490 L680 540" fill="none"/>
+    <path d="M215 355 L760 395" fill="none"/>
+  </g>
+
+  <!-- Rolled-out membrane roll -->
+  <g>
+    <path d="M300 330 L470 345 L455 380 L285 365 Z" fill="#c2c9ce"/>
+    <ellipse cx="300" cy="347" rx="14" ry="20" fill="#9aa4ab" transform="rotate(-6 300 347)"/>
+  </g>
+
+  <!-- Parapet edge with metal capping (blikkenslag) -->
+  <path d="M250 300 L800 340 L800 356 L250 316 Z" fill="#8a99a3"/>
+  <path d="M250 300 L800 340 L800 346 L250 306 Z" fill="#aeb9c0"/>
+
+  <!-- Roof drain -->
+  <ellipse cx="520" cy="470" rx="26" ry="12" fill="#5a656d"/>
+  <ellipse cx="520" cy="468" rx="13" ry="6" fill="#39424a"/>
+
+  <!-- Worker with hot-air welder (leister) -->
+  <g>
+    <!-- shadow -->
+    <ellipse cx="415" cy="452" rx="60" ry="12" fill="#8f989f" opacity="0.5"/>
+    <!-- lower leg / kneeling -->
+    <path d="M395 452 q35 -6 66 4 l-6 16 q-30 -8 -60 -2 Z" fill="#26333d"/>
+    <!-- torso -->
+    <path d="M388 396 q22 -12 44 -2 l10 44 q-30 -10 -58 -2 Z" fill="#c76d2c"/>
+    <!-- arm reaching to welder -->
+    <path d="M430 404 l40 20 -8 12 -40 -18 Z" fill="#b35f24"/>
+    <!-- head + hard hat -->
+    <circle cx="392" cy="384" r="15" fill="#e8c9a6"/>
+    <path d="M373 380 q19 -22 40 -2 l-2 6 q-18 -12 -36 0 Z" fill="#f0b83a"/>
+    <!-- welder (leister) -->
+    <rect x="466" y="426" width="30" height="12" rx="4" fill="#39424a" transform="rotate(14 466 426)"/>
+    <path d="M494 434 l16 6" stroke="#ff8a3d" stroke-width="4" stroke-linecap="round"/>
+    <!-- seam roller -->
+    <circle cx="360" cy="452" r="9" fill="#39424a"/>
+  </g>
+</svg>
