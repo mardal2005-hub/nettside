@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Haugesund Tak &amp; Terrasse">
+  <rect width="64" height="64" rx="14" fill="#16232f"/>
+  <path d="M13 34 L32 15 L51 34" fill="none" stroke="#d97a34" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18 34 L32 21 L46 34 L46 46 L18 46 Z" fill="#ffffff"/>
+  <g stroke="#d97a34" stroke-width="3" stroke-linecap="round">
+    <line x1="22" y1="53" x2="42" y2="53"/>
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Haugesund Tak &amp; Terrasse">
+  <defs>
+    <linearGradient id="ogbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14202e"/><stop offset="1" stop-color="#213648"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ogbg)"/>
+  <!-- mark -->
+  <g transform="translate(90,150)">
+    <path d="M0 120 L90 40 L180 120" fill="none" stroke="#d97a34" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M22 120 L90 62 L158 120 L158 190 L22 190 Z" fill="#ffffff"/>
+    <g stroke="#d97a34" stroke-width="10" stroke-linecap="round">
+      <line x1="42" y1="225" x2="138" y2="225"/>
+      <line x1="26" y1="250" x2="154" y2="250"/>
+    </g>
+  </g>
+  <!-- text -->
+  <g font-family="'Inter','Segoe UI',sans-serif" fill="#ffffff">
+    <text x="330" y="250" font-size="70" font-weight="800">Haugesund</text>
+    <text x="330" y="330" font-size="52" font-weight="700" fill="#e8934a">Tak &amp; Terrasse</text>
+    <text x="332" y="400" font-size="30" font-weight="500" fill="#aebcc7">25 års erfaring med tak og terrasser · Haugalandet</text>
+  </g>
+  <rect x="330" y="440" width="360" height="4" rx="2" fill="#d97a34"/>
+</svg>

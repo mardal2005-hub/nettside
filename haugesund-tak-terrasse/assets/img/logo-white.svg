@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="330" height="56" viewBox="0 0 330 56" role="img" aria-label="Haugesund Tak &amp; Terrasse">
+  <g>
+    <path d="M8 26 L28 9 L48 26" fill="none" stroke="#e8934a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M13 26 L28 14 L43 26 L43 40 L13 40 Z" fill="#ffffff"/>
+    <g stroke="#e8934a" stroke-width="2.4" stroke-linecap="round">
+      <line x1="17" y1="47" x2="39" y2="47"/>
+      <line x1="14" y1="52" x2="42" y2="52"/>
+    </g>
+  </g>
+  <g font-family="'Inter', 'Segoe UI', sans-serif">
+    <text x="62" y="26" font-size="20" font-weight="800" letter-spacing="0.2" fill="#ffffff">HAUGESUND</text>
+    <text x="62" y="46" font-size="14.5" font-weight="600" letter-spacing="3.4" fill="#aebcc7">TAK &amp; TERRASSE</text>
+  </g>
+</svg>

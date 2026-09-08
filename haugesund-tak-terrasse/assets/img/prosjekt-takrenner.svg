@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Takrenner og nedløp">
+  <defs>
+    <linearGradient id="s3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cbdbe4"/><stop offset="1" stop-color="#9db9c6"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#s3)"/>
+  <!-- roof edge -->
+  <path d="M40 300 L560 120 L800 210 L800 300 Z" fill="#b45f26"/>
+  <g stroke="#7f3f16" stroke-width="3" opacity="0.5">
+    <path d="M120 271 L560 120" fill="none"/>
+    <path d="M240 227 L640 160" fill="none"/>
+  </g>
+  <!-- fascia -->
+  <rect x="40" y="300" width="760" height="26" fill="#e7edef"/>
+  <!-- gutter -->
+  <rect x="40" y="326" width="760" height="30" rx="14" fill="#8a99a3"/>
+  <rect x="40" y="326" width="760" height="12" rx="6" fill="#aab7bf"/>
+  <!-- downpipe -->
+  <rect x="620" y="356" width="34" height="230" fill="#8a99a3"/>
+  <rect x="626" y="356" width="10" height="230" fill="#b3bfc6"/>
+  <rect x="612" y="560" width="50" height="16" rx="6" fill="#75848d"/>
+  <!-- wall -->
+  <rect y="356" width="560" height="244" fill="#dfe7ea"/>
+  <rect x="120" y="410" width="110" height="150" rx="4" fill="#33475a"/>
+</svg>
