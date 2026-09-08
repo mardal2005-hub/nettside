@@ -1,27 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Ny terrasse i tre">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Illustrasjon: terrasse i tre">
   <defs>
-    <linearGradient id="s2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d7e5ea"/><stop offset="1" stop-color="#aecad2"/></linearGradient>
-    <linearGradient id="d2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c99055"/><stop offset="1" stop-color="#9a6a38"/></linearGradient>
+    <linearGradient id="te-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe0e6"/><stop offset="1" stop-color="#aecad2"/></linearGradient>
+    <linearGradient id="te-deck" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c99055"/><stop offset="1" stop-color="#8a5c31"/></linearGradient>
+    <radialGradient id="te-sun" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#fff2da"/><stop offset="1" stop-color="#fff2da" stop-opacity="0"/></radialGradient>
+    <filter id="te-wood" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.014 0.13" numOctaves="3" seed="6" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0.40 0 0 0 0 0.27 0 0 0 0 0.14 0 0 0 0.5 0"/><feComposite operator="in" in2="SourceGraphic"/></filter>
+    <filter id="te-soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="10"/></filter>
+    <radialGradient id="te-vig" cx="0.5" cy="0.45" r="0.78"><stop offset="0.5" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#0a1116" stop-opacity="0.28"/></radialGradient>
+    <filter id="te-fg"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0"/></filter>
   </defs>
-  <rect width="800" height="600" fill="url(#s2)"/>
-  <rect y="330" width="800" height="90" fill="#7ea06a"/>
-  <!-- deck in perspective -->
-  <path d="M60 560 L250 360 L800 360 L800 600 L60 600 Z" fill="url(#d2)"/>
-  <g stroke="#6f4a29" stroke-width="4" opacity="0.55">
-    <path d="M250 360 L60 560" fill="none"/>
-    <path d="M420 360 L300 600" fill="none"/>
-    <path d="M580 360 L560 600" fill="none"/>
-    <path d="M740 360 L800 520" fill="none"/>
+  <rect width="800" height="600" fill="url(#te-sky)"/>
+  <circle cx="150" cy="110" r="140" fill="url(#te-sun)"/>
+  <rect y="300" width="800" height="90" fill="#79a065"/>
+  <rect y="300" width="800" height="90" fill="#000" opacity="0.06" filter="url(#te-soft)"/>
+  <!-- deck -->
+  <path d="M60 560 L250 360 L800 360 L800 600 L60 600 Z" fill="url(#te-deck)"/>
+  <path d="M60 560 L250 360 L800 360 L800 600 L60 600 Z" filter="url(#te-wood)"/>
+  <g stroke="#5f3f22" stroke-width="3.5" opacity="0.5">
+    <path d="M250 360 L60 560" fill="none"/><path d="M420 360 L300 600" fill="none"/><path d="M580 360 L560 600" fill="none"/><path d="M740 360 L800 520" fill="none"/>
   </g>
-  <!-- railing -->
-  <g stroke="#7c5230" stroke-width="9" stroke-linecap="round">
-    <line x1="250" y1="360" x2="250" y2="250"/>
-    <line x1="430" y1="360" x2="430" y2="250"/>
-    <line x1="610" y1="360" x2="610" y2="250"/>
-    <line x1="790" y1="360" x2="790" y2="250"/>
-  </g>
+  <g stroke="#e7c79b" stroke-width="1.2" opacity="0.4"><path d="M252 360 L64 558" fill="none"/><path d="M422 360 L303 598" fill="none"/></g>
+  <!-- railing with shadow -->
+  <g stroke="#5f3f22" stroke-width="10" stroke-linecap="round" opacity="0.3"><line x1="254" y1="360" x2="254" y2="250"/><line x1="434" y1="360" x2="434" y2="250"/><line x1="614" y1="360" x2="614" y2="250"/><line x1="794" y1="360" x2="794" y2="250"/></g>
+  <g stroke="#8a5c33" stroke-width="8" stroke-linecap="round"><line x1="250" y1="360" x2="250" y2="250"/><line x1="430" y1="360" x2="430" y2="250"/><line x1="610" y1="360" x2="610" y2="250"/><line x1="790" y1="360" x2="790" y2="250"/></g>
   <rect x="240" y="244" width="560" height="14" rx="7" fill="#9c6a3c"/>
+  <rect x="240" y="244" width="560" height="4" rx="2" fill="#e7c79b" opacity="0.5"/>
   <!-- planter -->
-  <rect x="120" y="470" width="70" height="70" rx="6" fill="#5c4632"/>
-  <path d="M130 470 q25 -60 50 0" fill="#5f9b52"/>
+  <g><rect x="120" y="470" width="70" height="72" rx="6" fill="#5a4632"/><rect x="120" y="470" width="14" height="72" rx="4" fill="#fff" opacity="0.12"/><path d="M130 470 q25 -62 50 0" fill="#5f9b52"/><path d="M138 470 q18 -44 34 0" fill="#6fae60"/></g>
+  <rect width="800" height="600" fill="url(#te-vig)"/>
+  <rect width="800" height="600" filter="url(#te-fg)" opacity="0.5"/>
 </svg>
