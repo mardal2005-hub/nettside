@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personvern – O.J. Miljeteig AS</title>
+  <meta name="description" content="Personvernerklæring for O.J. Miljeteig AS – hvordan vi behandler personopplysninger fra kontaktskjema og henvendelser.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1e7a37">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/styles.css?v=1">
+  <style>
+    .legal { max-width: 780px; margin-inline: auto; }
+    .legal .back { display: inline-flex; align-items: center; gap: 8px; color: var(--green-600); font-family: var(--font-display); font-weight: 600; margin-bottom: 26px; }
+    .legal .back svg { width: 18px; height: 18px; }
+    .legal h1 { font-size: clamp(2rem, 5vw, 3rem); }
+    .legal .updated { color: var(--muted); margin-top: 10px; }
+    .legal h2 { font-size: 1.4rem; margin-top: 40px; }
+    .legal p, .legal li { color: var(--ink-2); margin-top: 14px; }
+    .legal ul { padding-left: 22px; }
+    .legal a { color: var(--green-600); text-decoration: underline; }
+    .legal .box { background: var(--paper-2); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin-top: 22px; }
+  </style>
+</head>
+<body>
+  <header class="header scrolled" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="brand" aria-label="O.J. Miljeteig AS">
+        <img class="logo-dark" src="assets/img/logo.png" alt="O.J. Miljeteig AS" style="display:block" width="1227" height="712">
+      </a>
+      <div class="header__cta">
+        <a href="index.html#kontakt" class="btn">Kontakt oss</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section" style="padding-top: clamp(120px, 16vw, 160px)">
+    <div class="container legal">
+      <a href="index.html" class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> Tilbake til forsiden</a>
+      <span class="eyebrow">Personvern</span>
+      <h1>Personvernerklæring</h1>
+      <p class="updated">Sist oppdatert: [DATO]</p>
+
+      <p>Denne personvernerklæringen forklarer hvordan O.J. Miljeteig AS («vi») samler inn og behandler personopplysninger når du bruker nettsiden vår eller tar kontakt med oss.</p>
+
+      <h2>Behandlingsansvarlig</h2>
+      <div class="box">
+        <p style="margin-top:0"><strong>O.J. Miljeteig AS</strong><br>
+        Org.nr: [ORG.NR]<br>
+        Telefon: [TELEFON]<br>
+        E-post: [E-POST]<br>
+        Område: [OMRÅDE]</p>
+      </div>
+
+      <h2>Hvilke opplysninger vi samler inn</h2>
+      <p>Når du sender inn kontaktskjemaet eller kontakter oss på telefon eller e-post, kan vi behandle:</p>
+      <ul>
+        <li>Navn</li>
+        <li>Telefonnummer</li>
+        <li>E-postadresse</li>
+        <li>Opplysninger om prosjektet du beskriver i henvendelsen</li>
+      </ul>
+
+      <h2>Formål og behandlingsgrunnlag</h2>
+      <p>Vi bruker opplysningene til å svare på henvendelsen din, gi tilbud og eventuelt gjennomføre et oppdrag. Behandlingsgrunnlaget er ditt samtykke og/eller for å inngå og oppfylle en avtale med deg (personvernforordningen art. 6 nr. 1 bokstav a og b).</p>
+
+      <h2>Lagring</h2>
+      <p>Vi oppbevarer opplysningene så lenge det er nødvendig for å følge opp henvendelsen eller oppdraget, og sletter dem når de ikke lenger er nødvendige. Regnskapsmateriale oppbevares så lenge lovverket krever.</p>
+
+      <h2>Deling med andre</h2>
+      <p>Vi selger ikke personopplysninger. Opplysninger deles kun med databehandlere som er nødvendige for driften (for eksempel leverandør av skjema- eller e-posttjeneste), og som er underlagt databehandleravtale.</p>
+
+      <h2>Informasjonskapsler (cookies)</h2>
+      <p>Nettsiden bruker i utgangspunktet ikke informasjonskapsler til sporing eller markedsføring. Dersom dette endres, vil erklæringen oppdateres.</p>
+
+      <h2>Dine rettigheter</h2>
+      <p>Du har rett til innsyn i, retting og sletting av egne personopplysninger, og til å trekke tilbake samtykke. Du kan også klage til <a href="https://www.datatilsynet.no" target="_blank" rel="noopener">Datatilsynet</a>. Ta kontakt med oss på [E-POST] for å bruke rettighetene dine.</p>
+
+      <p style="margin-top:40px"><a href="index.html">← Tilbake til forsiden</a></p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border-top:none">
+        <span>© <span id="year"></span> O.J. Miljeteig AS · aut. entreprenør</span>
+        <span><a href="index.html">Forsiden</a> · <a href="personvern.html">Personvern</a></span>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
