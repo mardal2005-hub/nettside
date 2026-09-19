@@ -14,7 +14,7 @@ enkel å hoste med gratis HTTPS.
 ## Design
 
 - **Typografi:** Fraunces (display-serif) + Archivo (grotesk), lastet fra Google Fonts.
-- **Palett:** varm kremhvit (`#efe8db`), varm sort (`#181310`) og «jernmønje»-rust (`#bd4a2b`).
+- **Palett:** merkevarefarger fra logoen — azurblå (`#1e82be`) og rød (`#cf2b2b`) på hvitt, med dyp marineblå (`#0e3252`) på mørke flater.
 - **Uttrykk:** redaksjonelt/asymmetrisk grid, hårfine linjer, mono-etiketter, nummerert
   tjeneste-indeks (trekkspill), marquee, teknisk «takoppbygging»-grafikk og et spesifikasjons-
   oppsett — for et byrå-preg fremfor mal.
@@ -28,7 +28,7 @@ enkel å hoste med gratis HTTPS.
 ├── index.html            # Forsiden (hero, om oss, tjenester, spec, referanser, kontakt)
 ├── css/styles.css        # Designsystemet
 ├── js/main.js            # Meny, sticky header, trekkspill, skjema
-├── assets/img/           # Mark/favicon, hero-panel, prosjektgrafikk, OG-bilde (SVG)
+├── assets/img/           # Logo (PNG), favicon, hero-panel, prosjektgrafikk, OG-bilde
 ├── .nojekyll             # For GitHub Pages
 └── README.md
 ```
