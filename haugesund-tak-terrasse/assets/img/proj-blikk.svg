@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Grafikk: blikkenslag, takrenner og nedløp">
+  <rect width="800" height="600" fill="#1c1712"/>
+  <g font-family="ui-monospace, monospace" font-size="13" letter-spacing="1" fill="#efe8db" opacity="0.5"><text x="40" y="52">03 — BLIKKENSLAG</text></g>
+  <!-- roof edge -->
+  <path d="M120 250 L560 140 L720 200 L720 250 Z" fill="#8f969b"/>
+  <path d="M120 250 L560 140 L560 170 L120 275 Z" fill="#181310" opacity="0.2"/>
+  <!-- fascia -->
+  <rect x="120" y="250" width="600" height="18" fill="#c9cdd0"/>
+  <!-- gutter -->
+  <rect x="120" y="268" width="600" height="26" rx="12" fill="#b3b9bd"/>
+  <rect x="120" y="270" width="600" height="8" rx="3" fill="#dfe3e5"/>
+  <rect x="120" y="288" width="600" height="6" rx="3" fill="#5a6167" opacity="0.8"/>
+  <!-- downpipe -->
+  <rect x="560" y="294" width="30" height="230" fill="#b3b9bd"/>
+  <rect x="564" y="294" width="8" height="230" fill="#dfe3e5"/>
+  <rect x="583" y="294" width="6" height="230" fill="#5a6167" opacity="0.8"/>
+  <!-- rust brackets -->
+  <g fill="#bd4a2b"><rect x="240" y="288" width="8" height="14"/><rect x="400" y="288" width="8" height="14"/><rect x="556" y="420" width="38" height="8"/></g>
+</svg>

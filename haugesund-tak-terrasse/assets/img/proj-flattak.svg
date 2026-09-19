@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Grafikk: flatt tak med membran">
+  <rect width="800" height="600" fill="#1c1712"/>
+  <g font-family="ui-monospace, monospace" font-size="13" letter-spacing="1" fill="#efe8db" opacity="0.5"><text x="40" y="52">01 — FLATT TAK</text></g>
+  <!-- isometric slab -->
+  <path d="M150 380 L400 250 L680 330 L430 470 Z" fill="#cdd1d4"/>
+  <path d="M150 380 L400 250 L400 300 L150 430 Z" fill="#181310" opacity="0.12"/>
+  <path d="M150 380 L430 470 L430 500 L150 410 Z" fill="#a7adb1"/>
+  <path d="M430 470 L680 330 L680 360 L430 500 Z" fill="#8f969b"/>
+  <!-- seams -->
+  <g stroke="#8f969b" stroke-width="3" opacity="0.8"><path d="M250 322 L520 402" fill="none"/><path d="M340 372 L610 350" fill="none" opacity="0.5"/></g>
+  <!-- drain -->
+  <ellipse cx="410" cy="372" rx="20" ry="10" fill="#3a4148"/><ellipse cx="410" cy="370" rx="9" ry="4.5" fill="#20262b"/>
+  <!-- rust parapet accent -->
+  <path d="M400 250 L680 330" stroke="#bd4a2b" stroke-width="5" stroke-linecap="round"/>
+</svg>

@@ -1,24 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Haugesund Tak &amp; Terrasse">
-  <defs>
-    <linearGradient id="ogbg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#14202e"/><stop offset="1" stop-color="#213648"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#ogbg)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Haugesund Tak og Terrasse">
+  <rect width="1200" height="630" fill="#1c1712"/>
+  <g stroke="#efe8db" opacity="0.14"><line x1="80" y1="90" x2="1120" y2="90"/><line x1="80" y1="540" x2="1120" y2="540"/></g>
+  <g font-family="ui-monospace, monospace" font-size="20" letter-spacing="3" fill="#efe8db" opacity="0.55"><text x="80" y="130">TAKTEKKER · HAUGESUND · SIDEN 2020</text></g>
   <!-- mark -->
-  <g transform="translate(90,150)">
-    <path d="M0 120 L90 40 L180 120" fill="none" stroke="#d97a34" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M22 120 L90 62 L158 120 L158 190 L22 190 Z" fill="#ffffff"/>
-    <g stroke="#d97a34" stroke-width="10" stroke-linecap="round">
-      <line x1="42" y1="225" x2="138" y2="225"/>
-      <line x1="26" y1="250" x2="154" y2="250"/>
-    </g>
+  <g transform="translate(80,190)">
+    <rect width="96" height="96" rx="20" fill="#efe8db"/>
+    <path d="M18 55 L48 26 L78 55" fill="none" stroke="#181310" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <g stroke="#181310" stroke-width="3.2" stroke-linecap="round" opacity="0.85"><path d="M31 55 L42 33"/><path d="M48 55 L48 30"/><path d="M65 55 L54 33"/></g>
+    <path d="M24 63 L72 63" stroke="#bd4a2b" stroke-width="5" stroke-linecap="round"/>
   </g>
-  <!-- text -->
-  <g font-family="'Inter','Segoe UI',sans-serif" fill="#ffffff">
-    <text x="330" y="250" font-size="70" font-weight="800">Haugesund</text>
-    <text x="330" y="330" font-size="52" font-weight="700" fill="#e8934a">Tak &amp; Terrasse</text>
-    <text x="332" y="400" font-size="30" font-weight="500" fill="#aebcc7">25 års erfaring med tak og terrasser · Haugalandet</text>
+  <g font-family="Georgia, 'Times New Roman', serif" fill="#efe8db">
+    <text x="210" y="252" font-size="66" font-weight="700">Haugesund</text>
+    <text x="210" y="322" font-size="66" font-weight="700" fill="#d9925a">Tak &amp; Terrasse</text>
   </g>
-  <rect x="330" y="440" width="360" height="4" rx="2" fill="#d97a34"/>
+  <g font-family="ui-monospace, monospace" font-size="24" fill="#efe8db" opacity="0.7"><text x="82" y="430">Spesialist på Sarnafil og asfalt takbelegg</text></g>
+  <g font-family="ui-monospace, monospace" font-size="18" fill="#efe8db" opacity="0.5"><text x="82" y="500">Medlem av Takringen · Org.nr 924 720 646 · 917 09 446</text></g>
 </svg>

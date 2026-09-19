@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Grafikk: terrasse i tre">
+  <rect width="800" height="600" fill="#e7ddc9"/>
+  <g font-family="ui-monospace, monospace" font-size="13" letter-spacing="1" fill="#181310" opacity="0.55"><text x="40" y="52">04 — TERRASSE</text></g>
+  <!-- deck iso -->
+  <path d="M120 440 L360 300 L700 360 L460 520 Z" fill="#b07d47"/>
+  <path d="M120 440 L360 300 L360 330 L120 470 Z" fill="#181310" opacity="0.12"/>
+  <path d="M120 440 L460 520 L460 550 L120 470 Z" fill="#8a5c31"/>
+  <path d="M460 520 L700 360 L700 390 L460 550 Z" fill="#7c5230"/>
+  <!-- planks -->
+  <g stroke="#7c5230" stroke-width="3" opacity="0.6"><path d="M200 393 L500 449" fill="none"/><path d="M280 346 L580 404" fill="none"/></g>
+  <!-- railing posts -->
+  <g stroke="#181310" stroke-width="6" stroke-linecap="round"><line x1="360" y1="300" x2="360" y2="215"/><line x1="530" y1="330" x2="530" y2="245"/><line x1="700" y1="360" x2="700" y2="275"/></g>
+  <line x1="356" y1="212" x2="704" y2="272" stroke="#bd4a2b" stroke-width="5" stroke-linecap="round"/>
+</svg>

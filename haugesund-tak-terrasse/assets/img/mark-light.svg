@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-label="Haugesund Tak og Terrasse">
+  <rect width="48" height="48" rx="11" fill="#efe8db"/>
+  <path d="M9 27 L24 13 L39 27" fill="none" stroke="#181310" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <g stroke="#181310" stroke-width="1.6" stroke-linecap="round" opacity="0.85">
+    <path d="M15.5 27 L21 17.5"/>
+    <path d="M24 27 L24 15.4"/>
+    <path d="M32.5 27 L27 17.5"/>
+  </g>
+  <path d="M12 31.5 L36 31.5" stroke="#bd4a2b" stroke-width="2.6" stroke-linecap="round"/>
+</svg>
