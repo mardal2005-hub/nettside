@@ -7,16 +7,16 @@ Statisk side (HTML, CSS og litt JavaScript) uten rammeverk eller byggeprosess �
 enkel å hoste med gratis HTTPS.
 
 > **Om innholdet:** Tekst og fakta bygger på firmaets eget materiale og offentlige
-> registre (Brønnøysund/proff, 1881, gulesider, Takringen). Grafikkene er egendesignede
-> illustrasjoner laget for demoen — ikke firmaets egne prosjekter — og bør byttes med
-> ekte foto før lansering. Et lite «Demo»-merke i bunnen sier fra om dette.
+> registre (Brønnøysund/proff, 1881, gulesider, Google, Takringen). Hero- og
+> referansebildene er firmaets egne prosjektfoto. Et lite «Demo»-merke i bunnen
+> markerer at dette er en eksempelnettside.
 
 ## Design
 
 - **Typografi:** Fraunces (display-serif) + Archivo (grotesk), lastet fra Google Fonts.
 - **Palett:** merkevarefarger fra logoen — azurblå (`#1e82be`) og rød (`#cf2b2b`) på hvitt, med dyp marineblå (`#0e3252`) på mørke flater.
 - **Uttrykk:** redaksjonelt/asymmetrisk grid, hårfine linjer, mono-etiketter, nummerert
-  tjeneste-indeks (trekkspill), marquee, teknisk «takoppbygging»-grafikk og et spesifikasjons-
+  tjeneste-indeks (trekkspill), marquee, ekte prosjektfoto og et spesifikasjons-
   oppsett — for et byrå-preg fremfor mal.
 - Tilgjengelig (tastatur, fokusmarkering, `prefers-reduced-motion`) og responsiv.
 - SEO: meta, Open Graph og structured data (`RoofingContractor`).
@@ -28,7 +28,8 @@ enkel å hoste med gratis HTTPS.
 ├── index.html            # Forsiden (hero, om oss, tjenester, spec, referanser, kontakt)
 ├── css/styles.css        # Designsystemet
 ├── js/main.js            # Meny, sticky header, trekkspill, skjema
-├── assets/img/           # Logo (PNG), favicon, hero-panel, prosjektgrafikk, OG-bilde
+├── assets/img/foto/       # Prosjektfoto (hero + referanser)
+├── assets/img/           # Logo (PNG), favicon, OG-bilde
 ├── .nojekyll             # For GitHub Pages
 └── README.md
 ```
@@ -55,7 +56,6 @@ Settings → Pages → Deploy from a branch → `main` / `/ (root)`. `.nojekyll`
 
 ## Før lansering
 
-- Bytt illustrasjonene i `assets/img/` med ekte foto (legg et bredt hero-foto som
-  `assets/img/hero-photo.jpg`).
 - Koble skjemaet til en tjeneste (f.eks. Formspree) — bytt `action`-URL i `index.html`.
 - Fjern «Demo»-merket i bunnen.
+- Legg til flere prosjektfoto i `assets/img/foto/` ved behov.
